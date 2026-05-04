@@ -2,6 +2,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Create `.env.local` and add the Meta Pixel/Dataset ID:
+
+```bash
+NEXT_PUBLIC_META_PIXEL_ID=your_meta_pixel_id_here
+```
+
 First, run the development server:
 
 ```bash

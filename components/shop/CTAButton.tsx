@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { CHECKOUT_URL } from "@/lib/constants";
+import CheckoutLink from "./CheckoutLink";
 
 interface CTAButtonProps {
   label?: string;
@@ -20,8 +19,8 @@ export default function CTAButton({
       : "bg-transparent text-fv-charcoal border-2 border-fv-charcoal hover:bg-fv-charcoal hover:text-white";
 
   return (
-    <Link href={CHECKOUT_URL} className={`${base} ${styles} ${className}`}>
+    <CheckoutLink className={`${base} ${styles} ${className}`}>
       {label}
-    </Link>
+    </CheckoutLink>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { CHECKOUT_URL, CLINICIAN_COUNT } from "@/lib/constants";
+import { CLINICIAN_COUNT } from "@/lib/constants";
+import CheckoutLink from "./CheckoutLink";
 
 const ROTATION_MS = 5500;
 
@@ -200,13 +200,12 @@ export default function Hero() {
             {/* CTA + Footer — only on slides 1 and 3 */}
             {slide.showLeftCTA && (
               <>
-                <Link
+                <CheckoutLink
                   key={`cta-${index}`}
-                  href={CHECKOUT_URL}
                   className="inline-block bg-fv-grad-purple text-white font-body font-bold text-[14px] tracking-[0.10em] uppercase rounded-[10px] px-10 py-[18px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200 animate-fade-in"
                 >
                   {slide.ctaLabel} →
-                </Link>
+                </CheckoutLink>
 
                 {slide.footer && (
                   <p
@@ -290,12 +289,11 @@ export default function Hero() {
               </div>
 
               {/* CTA — same brand button as left column */}
-              <Link
-                href={CHECKOUT_URL}
+              <CheckoutLink
                 className="inline-block bg-fv-grad-purple text-white font-body font-bold text-[13px] tracking-[0.09em] uppercase rounded-[10px] px-7 py-[13px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200 mb-2.5"
               >
                 {slide.ctaLabel} →
-              </Link>
+              </CheckoutLink>
 
               {/* Guarantee line */}
               <p className="font-body text-[15px] font-bold tracking-[0.10em] uppercase text-fv-midnight">

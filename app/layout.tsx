@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Newsreader, Inter } from "next/font/google";
+import MetaPixel from "@/components/tracking/MetaPixel";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -39,7 +40,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bricolage.variable} ${newsreader.variable} ${inter.variable}`}>
-      <body className="font-body text-fv-charcoal antialiased">{children}</body>
+      <body className="font-body text-fv-charcoal antialiased">
+        <MetaPixel />
+        {children}
+      </body>
     </html>
   );
 }
