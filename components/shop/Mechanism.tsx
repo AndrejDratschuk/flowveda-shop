@@ -72,7 +72,8 @@ export default function Mechanism() {
         </div>
 
         <p className="fv-body-lead text-center mt-12 max-w-[680px] mx-auto font-display font-semibold text-[26px]">
-          488 milliseconds. The space where choice becomes possible.
+          488 milliseconds.
+          <span className="block mt-2">The space where choice becomes possible.</span>
         </p>
       </div>
     </section>

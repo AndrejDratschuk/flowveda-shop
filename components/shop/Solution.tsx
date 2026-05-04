@@ -12,18 +12,12 @@ export default function Solution() {
               <em className="block mt-3">It slows the moment down, giving you time to choose how you respond before you react.</em>
             </h2>
 
-            <div className="space-y-5">
+            <div className="space-y-6">
               <p className="fv-body-lead text-[24px] leading-[1.6]">
-                Most nootropics optimize the conditioned mind.
+                Most nootropics optimize the conditioned mind. They help you reach the same results faster.
               </p>
               <p className="fv-body-lead text-[24px] leading-[1.6]">
-                They help you reach the same results faster.
-              </p>
-              <p className="fv-body-lead text-[24px] leading-[1.6]">
-                FlowVeda® helps you step back from the repetition,
-              </p>
-              <p className="fv-body-lead text-[24px] leading-[1.6]">
-                recognize the moment before reaction,
+                FlowVeda® helps you step back from the repetition, recognize the moment before reaction,
               </p>
               <p className="font-display font-semibold text-fv-charcoal text-[28px] leading-[1.45]">
                 and make a better choice.

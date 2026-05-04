@@ -27,12 +27,14 @@ export default function Reframe() {
       </div>
 
       <div className="fv-container-md relative z-10">
-        <div className="text-center max-w-[820px] mx-auto mb-14">
-          <span className="fv-eyebrow justify-center inline-flex mb-7">The Reframe</span>
-          <h2 className="fv-display">
-            You do have a choice.
-            <em className="block mt-2">Most people just never recognize the moment.</em>
-          </h2>
+        <div className="bg-white/40 backdrop-blur-sm rounded-2xl px-8 py-10 md:px-12 md:py-12 max-w-[860px] mx-auto mb-14">
+          <div className="text-center">
+            <span className="fv-eyebrow justify-center inline-flex mb-7">The Reframe</span>
+            <h2 className="fv-display">
+              You do have a choice.
+              <em className="block mt-2">Most people just never recognize the moment.</em>
+            </h2>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
@@ -53,10 +55,12 @@ export default function Reframe() {
           ))}
         </div>
 
-        <p className="text-center mt-14 max-w-[680px] mx-auto font-display font-semibold text-[30px] text-fv-charcoal leading-[1.45]">
-          Your biology is not broken.
-          <span className="block mt-2 text-fv-purple font-sub italic font-normal">It is just outdated for this environment.</span>
-        </p>
+        <div className="bg-white/40 backdrop-blur-sm rounded-2xl px-8 py-8 md:px-12 md:py-10 max-w-[760px] mx-auto mt-14">
+          <p className="text-center font-display font-semibold text-[30px] text-fv-charcoal leading-[1.45]">
+            Your biology is not broken.
+            <span className="block mt-2 text-fv-purple font-sub italic font-normal">It is just outdated for this environment.</span>
+          </p>
+        </div>
       </div>
     </section>
   );

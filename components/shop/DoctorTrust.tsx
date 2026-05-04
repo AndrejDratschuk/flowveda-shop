@@ -80,7 +80,8 @@ export default function DoctorTrust() {
         </div>
 
         {/* Badge + headline lockup — left-aligned to match carousel below */}
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 mb-12 max-w-[1080px] mx-auto px-4 md:px-0">
+        <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-7 md:px-10 md:py-9 mb-12 max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 max-w-[1040px] mx-auto px-4 md:px-0">
           {/* Badge — 12% larger than v3.6 */}
           <div className="flex-shrink-0">
             <Image
@@ -100,6 +101,7 @@ export default function DoctorTrust() {
             <p className="fv-body-lead text-[22px] leading-[1.6] max-w-[680px] whitespace-normal">
               Doctors independently sharing FlowVeda® with patients. Not paid. Verified.
             </p>
+          </div>
           </div>
         </div>
 

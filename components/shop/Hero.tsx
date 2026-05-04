@@ -152,7 +152,7 @@ export default function Hero() {
                 ? "bg-white/50 backdrop-blur-sm rounded-2xl px-7 py-8 md:px-10 md:py-10 -ml-4 md:-ml-6 max-w-[760px]"
                 : slide.rightVisual === "result"
                 ? "bg-black/30 backdrop-blur-sm rounded-2xl px-7 py-8 md:px-10 md:py-10 -ml-4 md:-ml-6 max-w-[760px]"
-                : ""
+                : "bg-fv-midnight/40 backdrop-blur-sm rounded-2xl px-7 py-8 md:px-10 md:py-10 -ml-4 md:-ml-6 max-w-[760px]"
             }`}
           >
             {/* Headline */}
@@ -226,25 +226,25 @@ export default function Hero() {
           {slide.rightVisual === "product" && (
             <div
               key={`offer-${index}`}
-              className="relative animate-fade-in bg-white/50 backdrop-blur-sm rounded-2xl px-7 py-8 md:px-9 md:py-10 flex flex-col items-center max-w-[400px] w-full text-center shadow-[0_12px_40px_rgba(0,0,0,0.18)]"
-              style={{ marginRight: "calc(12.5% - 200px)" }}
+              className="relative animate-fade-in bg-white/50 backdrop-blur-sm rounded-2xl px-6 py-6 md:px-7 md:py-7 flex flex-col items-center max-w-[374px] w-full text-center shadow-[0_12px_40px_rgba(0,0,0,0.18)]"
+              style={{ marginRight: "calc(33.33% - 187px)" }}
             >
               {/* Title — midnight black */}
               <h3 className="font-display font-extrabold tracking-[-0.02em] leading-[1.1] mb-3"
-                  style={{ fontSize: "clamp(22px, 2.2vw, 26px)", color: "#1A1A2E" }}>
+                  style={{ fontSize: "clamp(20px, 1.8vw, 23px)", color: "#1A1A2E" }}>
                 The 60-Day Awakening
               </h3>
 
               {/* Price + savings row — $99 midnight, $165 darker strike-through */}
-              <div className="flex items-baseline gap-3 mb-5 justify-center">
+              <div className="flex items-baseline gap-3 mb-4 justify-center">
                 <span
                   className="font-display font-extrabold"
-                  style={{ fontSize: "52px", letterSpacing: "-0.025em", lineHeight: 1, color: "#1A1A2E" }}
+                  style={{ fontSize: "44px", letterSpacing: "-0.025em", lineHeight: 1, color: "#1A1A2E" }}
                 >
                   $99
                 </span>
                 <span
-                  className="font-body line-through text-[18px]"
+                  className="font-body line-through text-[17px]"
                   style={{ color: "#3D3D4E" }}
                 >
                   $165
@@ -255,7 +255,7 @@ export default function Hero() {
               </div>
 
               {/* Pills row — Doctor Trust translation pill style */}
-              <div className="flex flex-wrap gap-2 justify-center mb-6 max-w-[420px]">
+              <div className="flex flex-wrap gap-2 justify-center mb-4 max-w-[330px]">
                 {[
                   "2 bottles",
                   "180 capsules",
@@ -265,12 +265,12 @@ export default function Hero() {
                 ].map((pill, i) => (
                   <div
                     key={i}
-                    className="bg-white border-t-[3px] border-fv-purple rounded-xl px-4 py-3 shadow-fv-card flex items-center gap-2 whitespace-nowrap"
+                    className="bg-white border-t-[2px] border-fv-purple rounded-lg px-3.5 py-2.5 shadow-fv-card flex items-center gap-2 whitespace-nowrap"
                   >
-                    <div className="w-6 h-6 rounded-full bg-fv-purple text-white flex items-center justify-center flex-shrink-0 font-bold text-[12px]">
+                    <div className="w-[22px] h-[22px] rounded-full bg-fv-purple text-white flex items-center justify-center flex-shrink-0 font-bold text-[11px]">
                       ✓
                     </div>
-                    <span className="font-body font-semibold text-[18px] text-fv-charcoal">
+                    <span className="font-body font-semibold text-[13px] text-fv-charcoal">
                       {pill}
                     </span>
                   </div>
@@ -278,7 +278,7 @@ export default function Hero() {
               </div>
 
               {/* Bottle photo — 15% smaller than v3.1 (was full aspect-square, now constrained) */}
-              <div className="relative w-full mb-6" style={{ maxWidth: "320px", aspectRatio: "1 / 1" }}>
+              <div className="relative w-full mb-4" style={{ maxWidth: "220px", aspectRatio: "1 / 1" }}>
                 <Image
                   src="/images/60-day-awakening.png"
                   alt="FlowVeda 60-Day Awakening — two-bottle starter kit"
@@ -292,13 +292,13 @@ export default function Hero() {
               {/* CTA — same brand button as left column */}
               <Link
                 href={CHECKOUT_URL}
-                className="inline-block bg-fv-grad-purple text-white font-body font-bold text-[14px] tracking-[0.10em] uppercase rounded-[10px] px-10 py-[18px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200 mb-3"
+                className="inline-block bg-fv-grad-purple text-white font-body font-bold text-[13px] tracking-[0.09em] uppercase rounded-[10px] px-7 py-[13px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200 mb-2.5"
               >
                 {slide.ctaLabel} →
               </Link>
 
               {/* Guarantee line */}
-              <p className="font-body text-[19px] font-bold tracking-[0.10em] uppercase text-fv-midnight">
+              <p className="font-body text-[15px] font-bold tracking-[0.10em] uppercase text-fv-midnight">
                 60-day money-back guarantee
               </p>
             </div>
