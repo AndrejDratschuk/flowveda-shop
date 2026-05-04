@@ -7,8 +7,8 @@ export default function Product() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="rounded-2xl overflow-hidden bg-white shadow-fv-card aspect-square">
             <img
-              src="/images/product-bottle-hero.webp"
-              alt="FlowVeda 60-Day Awakening starter kit — bottle and capsules"
+              src="/images/flowveda-at-distance.webp"
+              alt="FlowVeda bottle on a sunlit table with soft greenery"
               className="w-full h-full object-cover"
             />
           </div>

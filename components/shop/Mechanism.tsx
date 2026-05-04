@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Mechanism() {
   return (
     <section className="fv-section bg-white">
@@ -17,45 +19,57 @@ export default function Mechanism() {
         </div>
 
         {/* 488ms timing diagram — the moment before */}
-        <div className="rounded-2xl border border-fv-purple bg-white p-8 md:p-12 shadow-fv-card">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-9 items-center">
-            <div className="text-center">
-              <div className="font-display font-extrabold text-[52px] leading-none tracking-[-0.032em] text-fv-blue">
-                ~12ms
-              </div>
-              <div className="font-body text-[14px] tracking-[0.18em] uppercase text-fv-charcoal mt-3 font-bold">
-                Amygdala fires
-              </div>
-              <div className="font-sub italic text-[16px] text-fv-purple mt-2">
-                the alarm
-              </div>
-            </div>
-
-            <div className="relative h-20">
-              <div className="absolute top-1/2 left-0 right-0 h-[2px] -translate-y-1/2 rounded-sm bg-fv-grad-purple-deep" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-2.5 bg-white border-[1.5px] border-fv-purple rounded-full whitespace-nowrap shadow-[0_2px_12px_rgba(102,71,156,0.15)]">
-                <span className="font-sub italic text-[16px] text-fv-purple font-medium">
-                  488ms — the moment before
-                </span>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <div className="font-display font-extrabold text-[52px] leading-none tracking-[-0.032em] text-fv-blue">
-                ~500ms
-              </div>
-              <div className="font-body text-[14px] tracking-[0.18em] uppercase text-fv-charcoal mt-3 font-bold">
-                Prefrontal cortex engages
-              </div>
-              <div className="font-sub italic text-[16px] text-fv-purple mt-2">
-                the choice
-              </div>
-            </div>
+        <div className="rounded-2xl border border-fv-purple bg-white p-8 md:p-12 shadow-fv-card relative overflow-hidden">
+          <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+            <Image
+              src="/images/Brain_Profile_Right.jpeg"
+              alt=""
+              width={500}
+              height={750}
+              className="opacity-[0.18] object-contain max-h-[90%] w-auto"
+            />
           </div>
 
-          <p className="text-center font-body italic text-[14px] text-fv-text-muted mt-6">
-            Öhman · LeDoux · cited in the FlowVeda® EQ research summary.
-          </p>
+          <div className="relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-9 items-center">
+              <div className="text-center">
+                <div className="font-display font-extrabold text-[52px] leading-none tracking-[-0.032em] text-fv-blue">
+                  ~12ms
+                </div>
+                <div className="font-body text-[14px] tracking-[0.18em] uppercase text-fv-charcoal mt-3 font-bold">
+                  Amygdala fires
+                </div>
+                <div className="font-sub italic text-[16px] text-fv-purple mt-2">
+                  the alarm
+                </div>
+              </div>
+
+              <div className="relative h-20">
+                <div className="absolute top-1/2 left-0 right-0 h-[2px] -translate-y-1/2 rounded-sm bg-fv-grad-purple-deep" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-2.5 bg-white border-[1.5px] border-fv-purple rounded-full whitespace-nowrap shadow-[0_2px_12px_rgba(102,71,156,0.15)]">
+                  <span className="font-sub italic text-[16px] text-fv-purple font-medium">
+                    488ms — the moment before
+                  </span>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <div className="font-display font-extrabold text-[52px] leading-none tracking-[-0.032em] text-fv-blue">
+                  ~500ms
+                </div>
+                <div className="font-body text-[14px] tracking-[0.18em] uppercase text-fv-charcoal mt-3 font-bold">
+                  Prefrontal cortex engages
+                </div>
+                <div className="font-sub italic text-[16px] text-fv-purple mt-2">
+                  the choice
+                </div>
+              </div>
+            </div>
+
+            <p className="text-center font-body italic text-[14px] text-fv-text-muted mt-6">
+              Öhman · LeDoux · cited in the FlowVeda® EQ research summary.
+            </p>
+          </div>
         </div>
 
         <p className="fv-body-lead text-center mt-12 max-w-[680px] mx-auto font-display font-semibold text-[22px]">

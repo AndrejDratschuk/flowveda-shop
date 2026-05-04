@@ -1,12 +1,15 @@
+import Image from "next/image";
 import CTAButton from "./CTAButton";
 
 export default function FinalClose() {
   return (
     <section className="relative overflow-hidden py-32 px-6 bg-fv-grad-purple-deep">
       <div className="absolute inset-0 opacity-25">
-        <img
-          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2400"
+        <Image
+          src="/images/flow-states.webp"
           alt=""
+          fill
+          sizes="100vw"
           className="w-full h-full object-cover"
         />
       </div>

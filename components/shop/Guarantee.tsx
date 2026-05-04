@@ -1,7 +1,19 @@
+import Image from "next/image";
+
 export default function Guarantee() {
   return (
-    <section className="fv-section bg-fv-cloud">
-      <div className="fv-container-sm text-center">
+    <section className="fv-section bg-fv-cloud relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/productivity.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-40"
+        />
+      </div>
+
+      <div className="fv-container-sm text-center relative z-10">
         <span className="fv-eyebrow justify-center inline-flex mb-7">The Guarantee</span>
         <h2 className="fv-display mb-8">
           Try it for <em>60 days.</em>
