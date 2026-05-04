@@ -46,7 +46,7 @@ export default function Reframe() {
                 {card.stat}
                 {card.unit && <span className="text-[24px] font-bold text-fv-purple ml-2">{card.unit}</span>}
               </div>
-              <p className="font-body text-[17px] leading-[1.65] text-fv-charcoal">
+              <p className="font-body text-[21px] leading-[1.65] text-fv-charcoal">
                 {card.label}
               </p>
             </div>
@@ -54,7 +54,8 @@ export default function Reframe() {
         </div>
 
         <p className="text-center mt-14 max-w-[680px] mx-auto font-display font-semibold text-[30px] text-fv-charcoal leading-[1.45]">
-          Your biology is not broken. <span className="text-fv-purple font-sub italic font-normal">It is just outdated for this environment.</span>
+          Your biology is not broken.
+          <span className="block mt-2 text-fv-purple font-sub italic font-normal">It is just outdated for this environment.</span>
         </p>
       </div>
     </section>

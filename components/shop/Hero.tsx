@@ -124,8 +124,8 @@ export default function Hero() {
         {slide.rightVisual === "result" && (
           <div className="absolute inset-0">
             <Image
-              src="/images/embracing-the-mountaintop.webp"
-              alt="Woman on a mountaintop at sunset, arms open, embracing the moment"
+              src="/images/beach-serenity.jpeg"
+              alt="A woman seated on a beach at sunset, calm water, present in the moment"
               fill
               sizes="100vw"
               className="object-cover"
@@ -157,13 +157,21 @@ export default function Hero() {
             <h1
               key={`h1-${index}`}
               className="font-display font-extrabold tracking-[-0.02em] leading-[1.1] mb-5 animate-fade-in"
-              style={{ fontSize: "clamp(28px, 3.4vw, 40px)", textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}
+              style={{
+                fontSize: "clamp(28px, 3.4vw, 40px)",
+                textShadow: slide.rightVisual === "product" ? "0 1px 8px rgba(255,255,255,0.6)" : "0 2px 24px rgba(0,0,0,0.55)",
+              }}
             >
-              <span className="block text-white">{slide.headlineLine1}</span>
+              <span
+                className="block"
+                style={{ color: slide.rightVisual === "product" ? "#1A1A2E" : "#FFFFFF" }}
+              >
+                {slide.headlineLine1}
+              </span>
               <span
                 className="block mt-1"
                 style={{
-                  color: "#B8A5D4",
+                  color: slide.rightVisual === "product" ? "#4A3375" : "#B8A5D4",
                   fontStyle: "italic",
                   fontFamily: "var(--font-newsreader)",
                   fontWeight: 500,
@@ -176,11 +184,12 @@ export default function Hero() {
             {/* Subhead — per-slide max-width forces 2-line wrap */}
             <p
               key={`sub-${index}`}
-              className={`font-body font-medium text-white/90 mb-7 ${slide.subheadMaxW} animate-fade-in`}
+              className={`font-body font-medium mb-7 ${slide.subheadMaxW} animate-fade-in`}
               style={{
                 fontSize: "clamp(16px, 1.6vw, 18px)",
                 lineHeight: 1.6,
-                textShadow: "0 1px 12px rgba(0,0,0,0.55)",
+                color: slide.rightVisual === "product" ? "rgba(26,26,46,0.92)" : "rgba(255,255,255,0.9)",
+                textShadow: slide.rightVisual === "product" ? "0 1px 6px rgba(255,255,255,0.5)" : "0 1px 12px rgba(0,0,0,0.55)",
               }}
             >
               {slide.subhead}
@@ -253,7 +262,7 @@ export default function Hero() {
                     <div className="w-6 h-6 rounded-full bg-fv-purple text-white flex items-center justify-center flex-shrink-0 font-bold text-[12px]">
                       ✓
                     </div>
-                    <span className="font-body font-semibold text-[14px] text-fv-charcoal">
+                    <span className="font-body font-semibold text-[18px] text-fv-charcoal">
                       {pill}
                     </span>
                   </div>

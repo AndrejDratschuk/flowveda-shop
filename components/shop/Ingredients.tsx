@@ -75,7 +75,7 @@ export default function Ingredients() {
           {ingredients.map((ing, i) => (
             <a
               key={i}
-              href={`/ingredients/${ing.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
+              href={`https://flowveda.com/ingredients/${ing.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
               className="bg-white border-2 border-fv-blue rounded-2xl overflow-hidden shadow-fv-ing hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(45,96,144,0.28)] transition-all duration-200 block"
             >
               <div className="aspect-[16/10] bg-fv-purple-light overflow-hidden">
@@ -92,8 +92,8 @@ export default function Ingredients() {
                     </span>
                   ))}
                 </div>
-                <h3 className="font-display font-bold text-[16px] leading-tight text-fv-charcoal mb-2 tracking-[-0.01em]">{ing.name}</h3>
-                <p className="font-body text-[14px] text-fv-text-body leading-snug">{ing.note}</p>
+                <h3 className="font-display font-bold text-[20px] leading-tight text-fv-charcoal mb-2 tracking-[-0.01em]">{ing.name}</h3>
+                <p className="font-body text-[18px] text-fv-text-body leading-snug">{ing.note}</p>
               </div>
             </a>
           ))}
@@ -101,7 +101,7 @@ export default function Ingredients() {
 
         <div className="text-center">
           <a
-            href="/ingredients"
+            href="https://flowveda.com/ingredients"
             className="inline-block font-body font-bold text-[14px] tracking-[0.10em] uppercase text-fv-charcoal border-2 border-fv-charcoal rounded-[10px] px-9 py-4 hover:bg-fv-charcoal hover:text-white transition-all duration-200"
           >
             See the Full Formula

@@ -81,9 +81,9 @@ export default function DoctorTrust() {
             <Image
               src="/images/clinicians-choice-badge.svg"
               alt={`${CLINICIAN_COUNT}+ Clinicians' Choice — Verified by FrontRow MD`}
-              width={296}
-              height={60}
-              className="h-14 md:h-16 w-auto"
+              width={356}
+              height={72}
+              className="h-[68px] md:h-[77px] w-auto"
             />
           </div>
 
@@ -93,7 +93,7 @@ export default function DoctorTrust() {
             <h2 className="fv-display mb-3">
               Trusted by <em>{CLINICIAN_COUNT}+ physicians.</em>
             </h2>
-            <p className="fv-body-lead text-[16px] max-w-[520px]">
+            <p className="fv-body-lead text-[20px] max-w-[520px]">
               Doctors independently sharing FlowVeda® with patients. Not paid. Verified.
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function DoctorTrust() {
               <div className="w-7 h-7 rounded-full bg-fv-purple text-white flex items-center justify-center flex-shrink-0 font-bold text-[14px]">
                 {card.icon}
               </div>
-              <p className="font-body text-[15px] font-semibold text-fv-charcoal leading-snug pt-0.5">{card.text}</p>
+              <p className="font-body text-[19px] font-semibold text-fv-charcoal leading-snug pt-0.5">{card.text}</p>
             </div>
           ))}
         </div>
@@ -134,8 +134,8 @@ export default function DoctorTrust() {
                   <img src={doc.photo} alt={doc.name} className="w-full h-full object-cover" />
                 </div>
                 <p className="font-display font-bold text-white text-[20px] mb-1">{doc.name}</p>
-                <p className="font-body font-medium text-[#E8E5ED] text-[16px]">{doc.practice}</p>
-                <p className="font-body font-medium text-[#B8B5C0] text-[14px] tracking-[0.12em] uppercase mb-3">{doc.years}</p>
+                <p className="font-body font-medium text-[#E8E5ED] text-[20px]">{doc.practice}</p>
+                <p className="font-body font-medium text-[#B8B5C0] text-[18px] tracking-[0.12em] uppercase mb-3">{doc.years}</p>
                 <div className="border-t border-fv-purple w-full pt-3 flex-1 flex items-start">
                   <p className="font-body text-[#F0EDEA] text-[18px] leading-[1.6]">&ldquo;{doc.quote}&rdquo;</p>
                 </div>
