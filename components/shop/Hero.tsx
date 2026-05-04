@@ -222,27 +222,33 @@ export default function Hero() {
         </div>
 
         {/* RIGHT COLUMN — Slide 2 offer card */}
-        <div className="hidden md:flex items-center justify-center px-6 lg:px-10 py-12">
+        <div className="hidden md:flex items-center justify-end pr-6 lg:pr-10 py-12 w-full">
           {slide.rightVisual === "product" && (
             <div
               key={`offer-${index}`}
-              className="relative animate-fade-in flex flex-col items-center max-w-[420px] w-full text-center"
+              className="relative animate-fade-in bg-white/50 backdrop-blur-sm rounded-2xl px-7 py-8 md:px-9 md:py-10 flex flex-col items-center max-w-[400px] w-full text-center shadow-[0_12px_40px_rgba(0,0,0,0.18)]"
+              style={{ marginRight: "calc(12.5% - 200px)" }}
             >
-              {/* Title */}
-              <h3 className="font-display font-extrabold text-white tracking-[-0.02em] leading-[1.1] mb-3"
-                  style={{ fontSize: "clamp(22px, 2.2vw, 26px)" }}>
+              {/* Title — midnight black */}
+              <h3 className="font-display font-extrabold tracking-[-0.02em] leading-[1.1] mb-3"
+                  style={{ fontSize: "clamp(22px, 2.2vw, 26px)", color: "#1A1A2E" }}>
                 The 60-Day Awakening
               </h3>
 
-              {/* Price + savings row */}
+              {/* Price + savings row — $99 midnight, $165 darker strike-through */}
               <div className="flex items-baseline gap-3 mb-5 justify-center">
                 <span
-                  className="font-display font-extrabold text-white"
-                  style={{ fontSize: "52px", letterSpacing: "-0.025em", lineHeight: 1 }}
+                  className="font-display font-extrabold"
+                  style={{ fontSize: "52px", letterSpacing: "-0.025em", lineHeight: 1, color: "#1A1A2E" }}
                 >
                   $99
                 </span>
-                <span className="font-body text-white/55 line-through text-[18px]">$165</span>
+                <span
+                  className="font-body line-through text-[18px]"
+                  style={{ color: "#3D3D4E" }}
+                >
+                  $165
+                </span>
                 <span className="font-body font-bold text-[12px] tracking-[0.08em] uppercase text-white bg-fv-pink rounded-full px-3 py-1">
                   40% OFF
                 </span>
