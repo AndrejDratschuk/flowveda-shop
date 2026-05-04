@@ -74,26 +74,30 @@ export default function DoctorTrust() {
   return (
     <section className="fv-section bg-white">
       <div className="fv-container-md">
-        {/* Header lockup: badge inline with title */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-10 max-w-[920px] mx-auto">
-          {/* Badge — official FrontRow MD Clinicians' Choice */}
+        {/* Section eyebrow — centered at top */}
+        <div className="text-center mb-10">
+          <span className="fv-eyebrow justify-center inline-flex">Doctor Trust</span>
+        </div>
+
+        {/* Badge + headline lockup — left-aligned to match carousel below */}
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 mb-12 max-w-[1080px] mx-auto px-4 md:px-0">
+          {/* Badge — 12% larger than v3.6 */}
           <div className="flex-shrink-0">
             <Image
               src="/images/clinicians-choice-badge.svg"
               alt={`${CLINICIAN_COUNT}+ Clinicians' Choice — Verified by FrontRow MD`}
-              width={356}
-              height={72}
-              className="h-[68px] md:h-[77px] w-auto"
+              width={398}
+              height={81}
+              className="h-[76px] md:h-[86px] w-auto"
             />
           </div>
 
-          {/* Headline + subline */}
-          <div className="text-center md:text-left">
-            <span className="fv-eyebrow justify-center md:justify-start inline-flex mb-4">Doctor Trust</span>
-            <h2 className="fv-display mb-3">
+          {/* Headline + subline — wider container keeps "physicians." on one line */}
+          <div className="text-center md:text-left flex-1 min-w-0">
+            <h2 className="fv-display mb-3 whitespace-nowrap">
               Trusted by <em>{CLINICIAN_COUNT}+ physicians.</em>
             </h2>
-            <p className="fv-body-lead text-[22px] leading-[1.6] max-w-[600px]">
+            <p className="fv-body-lead text-[22px] leading-[1.6] max-w-[680px] whitespace-normal">
               Doctors independently sharing FlowVeda® with patients. Not paid. Verified.
             </p>
           </div>

@@ -28,7 +28,7 @@ export default function Hero() {
       subhead: (
         <>A daily nootropic that supports calm, focused awareness, so you can recognize the moment before reaction, and choose how you respond.</>
       ),
-      subheadMaxW: "max-w-[720px]",
+      subheadMaxW: "max-w-[800px]",
       rightVisual: "video",
       ctaLabel: "Start Your 60-Day Awakening",
       footer: undefined,
@@ -40,7 +40,7 @@ export default function Hero() {
       subhead: (
         <>Eight clinically studied ingredients. One purpose: the calm, focused attention to choose how you respond.</>
       ),
-      subheadMaxW: "max-w-[640px]",
+      subheadMaxW: "max-w-[720px]",
       rightVisual: "product",
       ctaLabel: "Start Your 60-Day Awakening",
       showLeftCTA: false, // Slide 2: CTA lives in the right offer card
@@ -51,7 +51,7 @@ export default function Hero() {
       subhead: (
         <>You have half a second between what just happened and what you&rsquo;re about to do. The moment before is yours. Start living by your own rules.</>
       ),
-      subheadMaxW: "max-w-[720px]",
+      subheadMaxW: "max-w-[800px]",
       rightVisual: "result",
       ctaLabel: "Start Your 60-Day Awakening",
       footer: (
@@ -188,8 +188,8 @@ export default function Hero() {
               key={`sub-${index}`}
               className={`font-body font-medium mb-7 ${slide.subheadMaxW} animate-fade-in`}
               style={{
-                fontSize: "clamp(16px, 1.6vw, 18px)",
-                lineHeight: 1.6,
+                fontSize: "clamp(20px, 2.0vw, 22px)",
+                lineHeight: 1.55,
                 color: slide.rightVisual === "product" ? "rgba(26,26,46,0.92)" : "rgba(255,255,255,0.9)",
                 textShadow: slide.rightVisual === "product" ? "0 1px 6px rgba(255,255,255,0.5)" : "0 1px 12px rgba(0,0,0,0.55)",
               }}
