@@ -8,11 +8,13 @@ const ROTATION_MS = 5500;
 
 interface Slide {
   headlineLine1: React.ReactNode;
-  headlineLine2: string; // line 2 always rendered in purple
+  headlineLine2: string;
   subhead: React.ReactNode;
-  ctaLabel: string;
-  footer: React.ReactNode;
+  subheadMaxW: string;
   rightVisual: "video" | "product" | "result";
+  ctaLabel: string;
+  footer?: React.ReactNode;
+  showLeftCTA: boolean;
 }
 
 export default function Hero() {
@@ -26,6 +28,8 @@ export default function Hero() {
       subhead: (
         <>A daily nootropic that supports calm, focused awareness, so you can recognize the moment before reaction, and choose how you respond.</>
       ),
+      subheadMaxW: "max-w-[720px]",
+      rightVisual: "video",
       ctaLabel: "Start Your 60-Day Awakening",
       footer: (
         <>
@@ -34,7 +38,7 @@ export default function Hero() {
           60-day money-back guarantee.
         </>
       ),
-      rightVisual: "video",
+      showLeftCTA: true,
     },
     {
       headlineLine1: <>The Biology of Choice.</>,
@@ -42,15 +46,10 @@ export default function Hero() {
       subhead: (
         <>Eight clinically studied ingredients. One purpose: the calm, focused attention to choose how you respond.</>
       ),
-      ctaLabel: "Start Your 60-Day Awakening",
-      footer: (
-        <>
-          $99 · 40% off the $165 retail.
-          <br />
-          60-day money-back guarantee.
-        </>
-      ),
+      subheadMaxW: "max-w-[640px]",
       rightVisual: "product",
+      ctaLabel: "Start Your 60-Day Awakening",
+      showLeftCTA: false, // Slide 2: CTA lives in the right offer card
     },
     {
       headlineLine1: <>Reclaim the</>,
@@ -58,6 +57,8 @@ export default function Hero() {
       subhead: (
         <>You have half a second between what just happened and what you&rsquo;re about to do. The moment before is yours. Start living by your own rules.</>
       ),
+      subheadMaxW: "max-w-[720px]",
+      rightVisual: "result",
       ctaLabel: "Start Your 60-Day Awakening",
       footer: (
         <>
@@ -66,7 +67,7 @@ export default function Hero() {
           60-day money-back guarantee.
         </>
       ),
-      rightVisual: "result",
+      showLeftCTA: true,
     },
   ];
 
@@ -86,13 +87,12 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-[720px] md:min-h-[800px] flex items-stretch overflow-hidden bg-fv-midnight"
+      className="relative min-h-[760px] md:min-h-[820px] overflow-hidden bg-fv-midnight"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* RIGHT-COLUMN VISUAL LAYER — switches based on slide */}
+      {/* RIGHT-COLUMN BACKGROUND VISUAL LAYER */}
       <div className="absolute inset-0 z-0">
-        {/* Video plays only during Slide 1 (rightVisual === "video") — full-bleed */}
         {slide.rightVisual === "video" && (
           <>
             <video
@@ -108,26 +108,25 @@ export default function Hero() {
           </>
         )}
 
-        {/* Product slide — kitchen image fills right half */}
         {slide.rightVisual === "product" && (
           <>
+            {/* Kitchen scene — right half, faded for atmosphere (Path B) */}
             <div className="absolute inset-y-0 right-0 w-full md:w-1/2">
               <Image
                 src="/images/taking-flowveda.webp"
                 alt="Woman taking a FlowVeda capsule in her kitchen"
                 fill
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover opacity-40"
                 priority
               />
-              {/* Soft scrim on the right image so the product card pops */}
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-fv-midnight/10 to-fv-midnight/40" />
+              {/* Soft scrim — keeps the offer card pop without losing the image */}
+              <div className="absolute inset-0 bg-gradient-to-l from-fv-midnight/50 via-fv-midnight/35 to-fv-midnight/55" />
             </div>
-            {/* Left half deep navy/purple */}
             <div className="absolute inset-y-0 left-0 w-full md:w-1/2 bg-gradient-to-br from-fv-midnight via-fv-purple-deep/40 to-fv-midnight" />
           </>
         )}
 
-        {/* Result slide — mountaintop fills right half */}
         {slide.rightVisual === "result" && (
           <>
             <div className="absolute inset-y-0 right-0 w-full md:w-1/2">
@@ -135,6 +134,7 @@ export default function Hero() {
                 src="/images/embracing-the-mountaintop.webp"
                 alt="Woman on a mountaintop at sunset, arms open, embracing the moment"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
                 priority
               />
@@ -145,111 +145,157 @@ export default function Hero() {
         )}
       </div>
 
-      {/* CONTENT — two columns on desktop */}
-      <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-2 items-center">
-        {/* LEFT COLUMN — copy stack */}
-        <div className="px-4 md:pl-8 lg:pl-12 xl:pl-16 py-20 md:py-24 max-w-[680px]">
-          {/* Big badge */}
-          <div className="mb-6 animate-fade-in" key={`badge-${index}`}>
+      {/* CONTENT GRID */}
+      <div className="relative z-10 w-full min-h-[760px] md:min-h-[820px] grid grid-cols-1 md:grid-cols-2">
+        {/* LEFT COLUMN — vertically distributed: badge top, content bottom */}
+        <div className="flex flex-col justify-between px-4 md:pl-8 lg:pl-12 xl:pl-16 pt-16 pb-12 md:pt-20 md:pb-16 max-w-[820px]">
+          {/* Badge — top-left, 20% smaller than v3.1 */}
+          <div className="animate-fade-in" key={`badge-${index}`}>
             <Image
               src="/images/clinicians-choice-badge.svg"
               alt={`${CLINICIAN_COUNT}+ Clinicians' Choice — Verified by FrontRow MD`}
-              width={420}
-              height={85}
+              width={356}
+              height={72}
               priority
-              className="h-20 md:h-24 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
           </div>
 
-          {/* Headline — line 1 white, line 2 purple/lavender */}
-          <h1
-            key={`h1-${index}`}
-            className="font-display font-extrabold tracking-[-0.02em] leading-[1.1] mb-5 animate-fade-in"
-            style={{ fontSize: "clamp(28px, 3.4vw, 40px)", textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}
-          >
-            <span className="block text-white">{slide.headlineLine1}</span>
-            <span className="block mt-1" style={{ color: "#B8A5D4", fontStyle: "italic", fontFamily: "var(--font-newsreader)", fontWeight: 500 }}>
-              {slide.headlineLine2}
-            </span>
-          </h1>
+          {/* Bottom-pinned content stack */}
+          <div className="mt-auto">
+            {/* Headline */}
+            <h1
+              key={`h1-${index}`}
+              className="font-display font-extrabold tracking-[-0.02em] leading-[1.1] mb-5 animate-fade-in"
+              style={{ fontSize: "clamp(28px, 3.4vw, 40px)", textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}
+            >
+              <span className="block text-white">{slide.headlineLine1}</span>
+              <span
+                className="block mt-1"
+                style={{
+                  color: "#B8A5D4",
+                  fontStyle: "italic",
+                  fontFamily: "var(--font-newsreader)",
+                  fontWeight: 500,
+                }}
+              >
+                {slide.headlineLine2}
+              </span>
+            </h1>
 
-          {/* Subhead */}
-          <p
-            key={`sub-${index}`}
-            className="font-body font-medium text-white/90 mb-8 max-w-[560px] animate-fade-in"
-            style={{ fontSize: "clamp(16px, 1.6vw, 18px)", lineHeight: 1.65, textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}
-          >
-            {slide.subhead}
-          </p>
+            {/* Subhead — per-slide max-width forces 2-line wrap */}
+            <p
+              key={`sub-${index}`}
+              className={`font-body font-medium text-white/90 mb-7 ${slide.subheadMaxW} animate-fade-in`}
+              style={{
+                fontSize: "clamp(16px, 1.6vw, 18px)",
+                lineHeight: 1.6,
+                textShadow: "0 1px 12px rgba(0,0,0,0.55)",
+              }}
+            >
+              {slide.subhead}
+            </p>
 
-          {/* CTA — same on every slide */}
-          <Link
-            key={`cta-${index}`}
-            href={CHECKOUT_URL}
-            className="inline-block bg-fv-grad-purple text-white font-body font-bold text-[14px] tracking-[0.10em] uppercase rounded-[10px] px-10 py-[18px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200 animate-fade-in"
-          >
-            {slide.ctaLabel} →
-          </Link>
+            {/* CTA + Footer — only on slides 1 and 3 */}
+            {slide.showLeftCTA && (
+              <>
+                <Link
+                  key={`cta-${index}`}
+                  href={CHECKOUT_URL}
+                  className="inline-block bg-fv-grad-purple text-white font-body font-bold text-[14px] tracking-[0.10em] uppercase rounded-[10px] px-10 py-[18px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200 animate-fade-in"
+                >
+                  {slide.ctaLabel} →
+                </Link>
 
-          {/* Footer — matches button typography (14px, bold, tracking) */}
-          <p
-            key={`foot-${index}`}
-            className="font-body text-[14px] font-bold tracking-[0.10em] uppercase text-white/75 mt-5 leading-[1.7] animate-fade-in"
-          >
-            {slide.footer}
-          </p>
+                {slide.footer && (
+                  <p
+                    key={`foot-${index}`}
+                    className="font-body text-[14px] font-bold tracking-[0.10em] uppercase text-white/75 mt-5 leading-[1.7] animate-fade-in"
+                  >
+                    {slide.footer}
+                  </p>
+                )}
+              </>
+            )}
+          </div>
         </div>
 
-        {/* RIGHT COLUMN — only Slide 2 renders the product card here */}
-        <div className="hidden md:flex items-center justify-center px-8 lg:px-12 py-12">
+        {/* RIGHT COLUMN — Slide 2 offer card */}
+        <div className="hidden md:flex items-center justify-center px-6 lg:px-10 py-12">
           {slide.rightVisual === "product" && (
             <div
-              key={`product-${index}`}
-              className="relative animate-fade-in flex flex-col items-center max-w-[440px] w-full"
+              key={`offer-${index}`}
+              className="relative animate-fade-in flex flex-col items-center max-w-[420px] w-full text-center"
             >
-              {/* Bottle photo */}
-              <div className="relative w-full aspect-square mb-4">
+              {/* Title */}
+              <h3 className="font-display font-extrabold text-white tracking-[-0.02em] leading-[1.1] mb-3"
+                  style={{ fontSize: "clamp(22px, 2.2vw, 26px)" }}>
+                The 60-Day Awakening
+              </h3>
+
+              {/* Price + savings row */}
+              <div className="flex items-baseline gap-3 mb-5 justify-center">
+                <span
+                  className="font-display font-extrabold text-white"
+                  style={{ fontSize: "52px", letterSpacing: "-0.025em", lineHeight: 1 }}
+                >
+                  $99
+                </span>
+                <span className="font-body text-white/55 line-through text-[18px]">$165</span>
+                <span className="font-body font-bold text-[12px] tracking-[0.08em] uppercase text-white bg-fv-pink rounded-full px-3 py-1">
+                  40% OFF
+                </span>
+              </div>
+
+              {/* Pills row — same style as Doctor Trust translation pills */}
+              <div className="flex flex-wrap gap-1.5 justify-center mb-6 max-w-[380px]">
+                {[
+                  "2 bottles",
+                  "180 capsules",
+                  "3/day",
+                  "60-day supply",
+                  "Ships next business day",
+                ].map((pill, i) => (
+                  <span
+                    key={i}
+                    className="font-body font-semibold text-[11px] tracking-[0.04em] text-white/90 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 whitespace-nowrap"
+                  >
+                    {pill}
+                  </span>
+                ))}
+              </div>
+
+              {/* Bottle photo — 15% smaller than v3.1 (was full aspect-square, now constrained) */}
+              <div className="relative w-full mb-6" style={{ maxWidth: "320px", aspectRatio: "1 / 1" }}>
                 <Image
                   src="/images/60-day-awakening.png"
                   alt="FlowVeda 60-Day Awakening — two-bottle starter kit"
                   fill
+                  sizes="320px"
                   className="object-contain drop-shadow-2xl"
                   priority
                 />
               </div>
 
-              {/* Price + pills card */}
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 w-full">
-                {/* Price row */}
-                <div className="flex items-baseline gap-3 mb-4 justify-center">
-                  <span className="font-display font-extrabold text-fv-charcoal" style={{ fontSize: "44px", letterSpacing: "-0.025em" }}>
-                    $99
-                  </span>
-                  <span className="font-body text-fv-text-muted line-through text-[18px]">$165</span>
-                  <span className="font-body font-bold text-[12px] tracking-[0.08em] uppercase text-white bg-fv-pink rounded-full px-3 py-1">
-                    40% OFF
-                  </span>
-                </div>
+              {/* CTA — same brand button as left column */}
+              <Link
+                href={CHECKOUT_URL}
+                className="inline-block bg-fv-grad-purple text-white font-body font-bold text-[14px] tracking-[0.10em] uppercase rounded-[10px] px-10 py-[18px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200 mb-3"
+              >
+                {slide.ctaLabel} →
+              </Link>
 
-                {/* Pills */}
-                <div className="flex flex-wrap gap-1.5 justify-center">
-                  {["2 bottles", "180 capsules", "3/day", "60-day supply", "Ships next business day"].map((pill, i) => (
-                    <span
-                      key={i}
-                      className="font-body font-semibold text-[11px] tracking-[0.04em] text-fv-charcoal bg-fv-purple-light border border-fv-purple/30 rounded-full px-3 py-1.5 whitespace-nowrap"
-                    >
-                      {pill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              {/* Guarantee line */}
+              <p className="font-body text-[13px] font-bold tracking-[0.10em] uppercase text-white/75">
+                60-day money-back guarantee
+              </p>
             </div>
           )}
         </div>
       </div>
 
       {/* Slide indicators + nav */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
         <button
           onClick={prev}
           aria-label="Previous slide"
