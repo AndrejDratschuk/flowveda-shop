@@ -31,13 +31,7 @@ export default function Hero() {
       subheadMaxW: "max-w-[720px]",
       rightVisual: "video",
       ctaLabel: "Start Your 60-Day Awakening",
-      footer: (
-        <>
-          86% Ayurvedic. Clinically studied ingredients.
-          <br />
-          60-day money-back guarantee.
-        </>
-      ),
+      footer: undefined,
       showLeftCTA: true,
     },
     {
@@ -152,7 +146,15 @@ export default function Hero() {
           </div>
 
           {/* Bottom-pinned content stack */}
-          <div className="mt-auto">
+          <div
+            className={`mt-auto ${
+              slide.rightVisual === "product"
+                ? "bg-white/50 backdrop-blur-sm rounded-2xl px-7 py-8 md:px-10 md:py-10 -ml-4 md:-ml-6 max-w-[760px]"
+                : slide.rightVisual === "result"
+                ? "bg-black/30 backdrop-blur-sm rounded-2xl px-7 py-8 md:px-10 md:py-10 -ml-4 md:-ml-6 max-w-[760px]"
+                : ""
+            }`}
+          >
             {/* Headline */}
             <h1
               key={`h1-${index}`}
@@ -290,7 +292,7 @@ export default function Hero() {
               </Link>
 
               {/* Guarantee line */}
-              <p className="font-body text-[13px] font-bold tracking-[0.10em] uppercase text-white/75">
+              <p className="font-body text-[19px] font-bold tracking-[0.10em] uppercase text-fv-midnight">
                 60-day money-back guarantee
               </p>
             </div>

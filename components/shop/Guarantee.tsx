@@ -18,7 +18,7 @@ export default function Guarantee() {
         <h2 className="fv-display mb-8">
           Try it for <em>60 days.</em>
         </h2>
-        <p className="font-display font-semibold text-fv-charcoal text-[24px] leading-[1.4] max-w-[640px] mx-auto">
+        <p className="font-display font-semibold text-fv-charcoal text-[30px] leading-[1.4] max-w-[760px] mx-auto">
           If you do not notice a meaningful shift, get your money back.
         </p>
       </div>

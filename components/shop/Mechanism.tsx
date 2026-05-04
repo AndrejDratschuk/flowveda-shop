@@ -21,10 +21,10 @@ export default function Mechanism() {
             Watch what happens
             <em className="block mt-2">in less than a second.</em>
           </h2>
-          <p className="fv-body-lead">
+          <p className="fv-body-lead text-[24px] leading-[1.6]">
             Every reaction travels the same path. Once you see it, a door opens.
           </p>
-          <p className="fv-body-lead mt-4">
+          <p className="fv-body-lead text-[24px] leading-[1.6] mt-4">
             This is not personal failure. This is biology.
           </p>
         </div>

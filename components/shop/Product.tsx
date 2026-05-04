@@ -18,16 +18,16 @@ export default function Product() {
             <h2 className="fv-display mb-6">
               The 60-Day <em>Awakening.</em>
             </h2>
-            <p className="fv-body-lead mb-5">
+            <p className="fv-body-lead mb-5 text-[24px] leading-[1.6]">
               A daily protocol designed to build a baseline of calm, focused awareness.
             </p>
-            <p className="fv-body-lead mb-5 font-display font-semibold text-fv-charcoal text-[20px]">
+            <p className="fv-body-lead mb-5 font-display font-semibold text-fv-charcoal text-[26px]">
               3 capsules per day. 180 capsules total.
             </p>
-            <p className="fv-body-lead mb-8">
+            <p className="fv-body-lead mb-8 text-[24px] leading-[1.6]">
               Most people begin to notice a shift within the first month.
             </p>
-            <p className="font-sub italic text-fv-purple text-[22px] leading-[1.45] mb-10">
+            <p className="font-sub italic text-fv-purple text-[28px] leading-[1.45] mb-10">
               Awareness compounds with consistency.
             </p>
             <CTAButton label="Try Our 60-Day Awakening" />

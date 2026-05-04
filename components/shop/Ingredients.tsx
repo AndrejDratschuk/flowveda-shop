@@ -66,7 +66,7 @@ export default function Ingredients() {
           <h2 className="fv-display mb-6">
             Ancient formulation. <em>Modern validation.</em>
           </h2>
-          <p className="fv-body-lead">
+          <p className="fv-body-lead text-[24px] leading-[1.6]">
             Eight ingredients, each with a specific role in stress response, cognitive clarity, and sustained awareness. All backed by cited clinical research.
           </p>
         </div>

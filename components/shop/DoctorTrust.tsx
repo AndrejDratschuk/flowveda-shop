@@ -93,7 +93,7 @@ export default function DoctorTrust() {
             <h2 className="fv-display mb-3">
               Trusted by <em>{CLINICIAN_COUNT}+ physicians.</em>
             </h2>
-            <p className="fv-body-lead text-[20px] max-w-[520px]">
+            <p className="fv-body-lead text-[22px] leading-[1.6] max-w-[600px]">
               Doctors independently sharing FlowVeda® with patients. Not paid. Verified.
             </p>
           </div>

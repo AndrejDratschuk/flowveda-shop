@@ -13,19 +13,19 @@ export default function Solution() {
             </h2>
 
             <div className="space-y-5">
-              <p className="fv-body-lead">
+              <p className="fv-body-lead text-[24px] leading-[1.6]">
                 Most nootropics optimize the conditioned mind.
               </p>
-              <p className="fv-body-lead">
+              <p className="fv-body-lead text-[24px] leading-[1.6]">
                 They help you reach the same results faster.
               </p>
-              <p className="fv-body-lead">
+              <p className="fv-body-lead text-[24px] leading-[1.6]">
                 FlowVeda® helps you step back from the repetition,
               </p>
-              <p className="fv-body-lead">
+              <p className="fv-body-lead text-[24px] leading-[1.6]">
                 recognize the moment before reaction,
               </p>
-              <p className="fv-body-lead font-display font-semibold text-fv-charcoal text-[22px]">
+              <p className="font-display font-semibold text-fv-charcoal text-[28px] leading-[1.45]">
                 and make a better choice.
               </p>
             </div>

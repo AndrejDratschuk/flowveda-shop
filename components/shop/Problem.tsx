@@ -19,13 +19,13 @@ export default function Problem() {
           The modern world is engineered to
           <em className="block mt-2">capture your reaction.</em>
         </h2>
-        <p className="fv-body-lead max-w-[640px] mx-auto">
+        <p className="fv-body-lead max-w-[720px] mx-auto text-[24px] leading-[1.6]">
           Notifications. Pressure. Noise.
         </p>
-        <p className="fv-body-lead max-w-[640px] mx-auto mt-4">
+        <p className="fv-body-lead max-w-[720px] mx-auto mt-4 text-[24px] leading-[1.6]">
           Over time, response becomes automatic.
         </p>
-        <p className="fv-body-lead max-w-[640px] mx-auto mt-4 font-display font-semibold text-[22px] text-fv-charcoal">
+        <p className="max-w-[720px] mx-auto mt-4 font-display font-semibold text-[28px] text-fv-charcoal leading-[1.45]">
           You stop choosing. You start reacting.
         </p>
       </div>
