@@ -17,6 +17,7 @@ interface Slide {
   ctaLabel: string;
   footer?: React.ReactNode;
   showLeftCTA: boolean;
+  showOfferCard?: boolean;
 }
 
 export default function Hero() {
@@ -35,7 +36,8 @@ export default function Hero() {
       videoSrc: "/videos/flowveda-distraction-hero-heartbeat.mp4",
       posterSrc: "/images/hero-reactionary-world.jpeg",
       ctaLabel: "Start Your 60-Day Awakening",
-      showLeftCTA: true,
+      showLeftCTA: false,
+      showOfferCard: true,
     },
     {
       headlineLine1: <>The world wants your reaction.</>,
@@ -229,7 +231,7 @@ export default function Hero() {
 
         {/* RIGHT COLUMN — Slide 2 offer card */}
         <div className="hidden md:flex items-center justify-end pr-6 lg:pr-10 py-12 w-full">
-          {slide.rightVisual === "product" && (
+          {slide.showOfferCard && (
             <div
               key={`offer-${index}`}
               className="relative animate-fade-in bg-white/50 backdrop-blur-sm rounded-2xl px-6 py-6 md:px-7 md:py-7 flex flex-col items-center max-w-[374px] w-full text-center shadow-[0_12px_40px_rgba(0,0,0,0.18)]"
