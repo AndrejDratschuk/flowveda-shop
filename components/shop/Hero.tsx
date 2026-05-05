@@ -48,8 +48,7 @@ export default function Hero() {
         <>A daily nootropic that supports calm, focused awareness, so you can recognize the moment before reaction, and choose how you respond.</>
       ),
       subheadMaxW: "max-w-[800px]",
-      rightVisual: "video",
-      posterSrc: "/images/hero-reactionary-world.jpeg",
+      rightVisual: "product",
       ctaLabel: "Start Your 60-Day Awakening",
       footer: undefined,
       showLeftCTA: true,
