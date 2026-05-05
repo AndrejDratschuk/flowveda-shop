@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { CLINICIAN_COUNT } from "@/lib/constants";
 import CheckoutLink from "./CheckoutLink";
@@ -23,6 +23,8 @@ interface Slide {
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const slides: Slide[] = [
     {
@@ -85,6 +87,33 @@ export default function Hero() {
   const slide = slides[index];
   const next = () => setIndex((prev) => (prev + 1) % slides.length);
   const prev = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  const hasAudioVideo = Boolean(slide.videoSrc);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !hasAudioVideo) return;
+
+    video.muted = !soundEnabled;
+    video.play().catch(() => {
+      video.muted = true;
+      setSoundEnabled(false);
+      video.play().catch(() => undefined);
+    });
+  }, [hasAudioVideo, soundEnabled, index]);
+
+  const toggleSound = () => {
+    const video = videoRef.current;
+    const nextSoundState = !soundEnabled;
+
+    setSoundEnabled(nextSoundState);
+    if (!video) return;
+
+    video.muted = !nextSoundState;
+    video.play().catch(() => {
+      video.muted = true;
+      setSoundEnabled(false);
+    });
+  };
 
   return (
     <section
@@ -97,9 +126,10 @@ export default function Hero() {
         {slide.rightVisual === "video" && (
           <>
             <video
+              ref={videoRef}
               autoPlay
               loop
-              muted
+              muted={!soundEnabled || !hasAudioVideo}
               playsInline
               poster={slide.posterSrc}
               className="w-full h-full object-cover opacity-55"
@@ -108,6 +138,16 @@ export default function Hero() {
             </video>
             <div className="absolute inset-0 bg-gradient-to-r from-fv-midnight/85 via-fv-midnight/65 to-fv-midnight/35" />
             <div className="absolute inset-0 bg-gradient-to-b from-fv-midnight/30 via-transparent to-fv-midnight/50" />
+            {hasAudioVideo && (
+              <button
+                type="button"
+                onClick={toggleSound}
+                aria-pressed={soundEnabled}
+                className="absolute right-6 bottom-24 z-20 rounded-full border border-white/25 bg-black/35 px-4 py-2 font-body text-[12px] font-bold uppercase tracking-[0.10em] text-white backdrop-blur-md transition-colors hover:bg-black/55"
+              >
+                {soundEnabled ? "Sound on" : "Turn sound on"}
+              </button>
+            )}
           </>
         )}
 
