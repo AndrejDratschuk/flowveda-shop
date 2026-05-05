@@ -12,6 +12,8 @@ interface Slide {
   subhead: React.ReactNode;
   subheadMaxW: string;
   rightVisual: "video" | "product" | "result";
+  videoSrc?: string;
+  posterSrc?: string;
   ctaLabel: string;
   footer?: React.ReactNode;
   showLeftCTA: boolean;
@@ -23,6 +25,19 @@ export default function Hero() {
 
   const slides: Slide[] = [
     {
+      headlineLine1: <>The Biology of Choice.</>,
+      headlineLine2: "Encapsulated.",
+      subhead: (
+        <>Eight clinically studied ingredients. One purpose: the calm, focused attention to choose how you respond.</>
+      ),
+      subheadMaxW: "max-w-[720px]",
+      rightVisual: "video",
+      videoSrc: "/videos/flowveda-distraction-hero-heartbeat.mp4",
+      posterSrc: "/images/hero-reactionary-world.jpeg",
+      ctaLabel: "Start Your 60-Day Awakening",
+      showLeftCTA: true,
+    },
+    {
       headlineLine1: <>The world wants your reaction.</>,
       headlineLine2: "Own the moment before.",
       subhead: (
@@ -30,20 +45,10 @@ export default function Hero() {
       ),
       subheadMaxW: "max-w-[800px]",
       rightVisual: "video",
+      posterSrc: "/images/hero-reactionary-world.jpeg",
       ctaLabel: "Start Your 60-Day Awakening",
       footer: undefined,
       showLeftCTA: true,
-    },
-    {
-      headlineLine1: <>The Biology of Choice.</>,
-      headlineLine2: "Encapsulated.",
-      subhead: (
-        <>Eight clinically studied ingredients. One purpose: the calm, focused attention to choose how you respond.</>
-      ),
-      subheadMaxW: "max-w-[720px]",
-      rightVisual: "product",
-      ctaLabel: "Start Your 60-Day Awakening",
-      showLeftCTA: false, // Slide 2: CTA lives in the right offer card
     },
     {
       headlineLine1: <>Reclaim the</>,
@@ -94,9 +99,11 @@ export default function Hero() {
               loop
               muted
               playsInline
-              poster="/images/hero-reactionary-world.jpeg"
+              poster={slide.posterSrc}
               className="w-full h-full object-cover opacity-55"
-            />
+            >
+              {slide.videoSrc && <source src={slide.videoSrc} type="video/mp4" />}
+            </video>
             <div className="absolute inset-0 bg-gradient-to-r from-fv-midnight/85 via-fv-midnight/65 to-fv-midnight/35" />
             <div className="absolute inset-0 bg-gradient-to-b from-fv-midnight/30 via-transparent to-fv-midnight/50" />
           </>
