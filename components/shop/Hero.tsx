@@ -23,7 +23,7 @@ interface Slide {
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [soundEnabled, setSoundEnabled] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const slides: Slide[] = [
@@ -93,6 +93,7 @@ export default function Hero() {
     if (!video || !hasAudioVideo) return;
 
     video.muted = !soundEnabled;
+    video.volume = 1;
     video.play().catch(() => {
       video.muted = true;
       setSoundEnabled(false);
@@ -108,6 +109,7 @@ export default function Hero() {
     if (!video) return;
 
     video.muted = !nextSoundState;
+    video.volume = 1;
     video.play().catch(() => {
       video.muted = true;
       setSoundEnabled(false);
@@ -125,6 +127,7 @@ export default function Hero() {
         {slide.rightVisual === "video" && (
           <>
             <video
+              key={slide.videoSrc ?? slide.rightVisual}
               ref={videoRef}
               autoPlay
               loop
