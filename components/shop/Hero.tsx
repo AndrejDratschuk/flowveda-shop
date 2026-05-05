@@ -140,47 +140,6 @@ export default function Hero() {
             </video>
             <div className="absolute inset-0 bg-gradient-to-r from-fv-midnight/85 via-fv-midnight/65 to-fv-midnight/35" />
             <div className="absolute inset-0 bg-gradient-to-b from-fv-midnight/30 via-transparent to-fv-midnight/50" />
-            {hasAudioVideo && (
-              <button
-                type="button"
-                onClick={toggleSound}
-                aria-label={soundEnabled ? "Mute hero video" : "Unmute hero video"}
-                aria-pressed={soundEnabled}
-                className="absolute right-5 top-5 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white backdrop-blur-md transition-colors hover:bg-black/55 focus:outline-none focus:ring-2 focus:ring-white/70"
-              >
-                {soundEnabled ? (
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  >
-                    <path d="M11 5 6 9H3v6h3l5 4V5Z" />
-                    <path d="M16 9.5a4 4 0 0 1 0 5" />
-                    <path d="M19 6a8 8 0 0 1 0 12" />
-                  </svg>
-                ) : (
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  >
-                    <path d="M11 5 6 9H3v6h3l5 4V5Z" />
-                    <path d="m16 10 5 5" />
-                    <path d="m21 10-5 5" />
-                  </svg>
-                )}
-              </button>
-            )}
           </>
         )}
 
@@ -385,6 +344,48 @@ export default function Hero() {
           )}
         </div>
       </div>
+
+      {hasAudioVideo && (
+        <button
+          type="button"
+          onClick={toggleSound}
+          aria-label={soundEnabled ? "Mute hero video" : "Unmute hero video"}
+          aria-pressed={soundEnabled}
+          className="absolute right-5 top-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white backdrop-blur-md transition-colors hover:bg-black/55 focus:outline-none focus:ring-2 focus:ring-white/70"
+        >
+          {soundEnabled ? (
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+            >
+              <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+              <path d="M16 9.5a4 4 0 0 1 0 5" />
+              <path d="M19 6a8 8 0 0 1 0 12" />
+            </svg>
+          ) : (
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+            >
+              <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+              <path d="m16 10 5 5" />
+              <path d="m21 10-5 5" />
+            </svg>
+          )}
+        </button>
+      )}
 
       {/* Slide indicators + nav */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
