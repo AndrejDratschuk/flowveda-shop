@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CTAButton from "./CTAButton";
 
 export default function Product() {
@@ -5,11 +6,13 @@ export default function Product() {
     <section className="fv-section bg-fv-cloud">
       <div className="fv-container-md">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div className="rounded-2xl overflow-hidden bg-white shadow-fv-card aspect-square">
-            <img
+          <div className="relative rounded-2xl overflow-hidden bg-white shadow-fv-card aspect-square">
+            <Image
               src="/images/flowveda-at-distance.webp"
               alt="FlowVeda bottle on a sunlit table with soft greenery"
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
 

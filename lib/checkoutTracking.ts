@@ -1,3 +1,4 @@
+import posthog from "posthog-js";
 import { CHECKOUT_URL } from "@/lib/constants";
 
 const FORWARDED_PARAMS = [
@@ -39,9 +40,16 @@ export function buildCheckoutUrl() {
   return checkoutUrl.toString();
 }
 
-export function trackCheckoutStart() {
+export function trackCheckoutStart(checkoutUrl = CHECKOUT_URL) {
   window.fbq?.("track", "InitiateCheckout", CHECKOUT_EVENT);
   window.fbq?.("trackCustom", "CheckoutClick", {
     destination: "checkout.flowveda.com",
   });
+
+  if (posthog.__loaded) {
+    posthog.capture("checkout_started", {
+      checkout_url: checkoutUrl,
+      destination: "checkout.flowveda.com",
+    });
+  }
 }

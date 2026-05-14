@@ -18,7 +18,7 @@ export default function CheckoutLink({
       onClick={(event) => {
         const nextHref = buildCheckoutUrl();
         event.currentTarget.href = nextHref;
-        trackCheckoutStart();
+        trackCheckoutStart(nextHref);
         onClick?.(event);
       }}
     >

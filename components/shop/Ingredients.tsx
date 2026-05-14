@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const ingredients = [
   {
     name: "KSM-66® Ashwagandha",
@@ -78,8 +80,15 @@ export default function Ingredients() {
               href={`https://flowveda.com/ingredients/${ing.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
               className="bg-white border-2 border-fv-blue rounded-2xl overflow-hidden shadow-fv-ing hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(45,96,144,0.28)] transition-all duration-200 block"
             >
-              <div className="aspect-[16/10] bg-fv-purple-light overflow-hidden">
-                <img src={ing.img} alt={ing.alt} className="w-full h-full object-cover" />
+              <div className="relative aspect-[16/10] bg-fv-purple-light overflow-hidden">
+                <Image
+                  src={ing.img}
+                  alt={ing.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  quality={70}
+                  className="object-cover"
+                />
               </div>
               <div className="p-5">
                 <div className="flex flex-wrap gap-1.5 mb-3">

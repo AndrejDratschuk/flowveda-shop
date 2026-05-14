@@ -12,7 +12,10 @@ interface Slide {
   subhead: React.ReactNode;
   subheadMaxW: string;
   rightVisual: "video" | "product" | "result";
-  videoSrc?: string;
+  videoSources?: {
+    src: string;
+    type: string;
+  }[];
   posterSrc?: string;
   ctaLabel: string;
   footer?: React.ReactNode;
@@ -24,6 +27,7 @@ export default function Hero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const slides: Slide[] = [
@@ -35,7 +39,16 @@ export default function Hero() {
       ),
       subheadMaxW: "max-w-[720px]",
       rightVisual: "video",
-      videoSrc: "/videos/flowveda-distraction-hero-heartbeat.mp4",
+      videoSources: [
+        {
+          src: "/videos/flowveda-distraction-hero-heartbeat-optimized.webm",
+          type: "video/webm",
+        },
+        {
+          src: "/videos/flowveda-distraction-hero-heartbeat-optimized.mp4",
+          type: "video/mp4",
+        },
+      ],
       posterSrc: "/images/hero-reactionary-world.jpeg",
       ctaLabel: "Start Your 60-Day Awakening",
       showLeftCTA: false,
@@ -83,10 +96,29 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [tick]);
 
+  useEffect(() => {
+    let timeout: number | undefined;
+
+    const scheduleVideo = () => {
+      timeout = window.setTimeout(() => setShouldLoadVideo(true), 1600);
+    };
+
+    if (document.readyState === "complete") {
+      scheduleVideo();
+    } else {
+      window.addEventListener("load", scheduleVideo, { once: true });
+    }
+
+    return () => {
+      window.removeEventListener("load", scheduleVideo);
+      if (timeout) window.clearTimeout(timeout);
+    };
+  }, []);
+
   const slide = slides[index];
   const next = () => setIndex((prev) => (prev + 1) % slides.length);
   const prev = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  const hasAudioVideo = Boolean(slide.videoSrc);
+  const hasAudioVideo = Boolean(slide.videoSources?.length);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -126,18 +158,32 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         {slide.rightVisual === "video" && (
           <>
-            <video
-              key={slide.videoSrc ?? slide.rightVisual}
-              ref={videoRef}
-              autoPlay
-              loop
-              muted={!soundEnabled || !hasAudioVideo}
-              playsInline
-              poster={slide.posterSrc}
-              className="w-full h-full object-cover opacity-55"
-            >
-              {slide.videoSrc && <source src={slide.videoSrc} type="video/mp4" />}
-            </video>
+            {slide.posterSrc && (
+              <Image
+                src={slide.posterSrc}
+                alt=""
+                fill
+                sizes="100vw"
+                fetchPriority="high"
+                className="object-cover opacity-55"
+              />
+            )}
+            {shouldLoadVideo && (
+              <video
+                key={slide.videoSources?.[0]?.src ?? slide.rightVisual}
+                ref={videoRef}
+                autoPlay
+                loop
+                muted={!soundEnabled || !hasAudioVideo}
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 h-full w-full object-cover opacity-55"
+              >
+                {slide.videoSources?.map((source) => (
+                  <source key={source.src} src={source.src} type={source.type} />
+                ))}
+              </video>
+            )}
             <div className="absolute inset-0 bg-gradient-to-r from-fv-midnight/85 via-fv-midnight/65 to-fv-midnight/35" />
             <div className="absolute inset-0 bg-gradient-to-b from-fv-midnight/30 via-transparent to-fv-midnight/50" />
           </>
@@ -151,7 +197,6 @@ export default function Hero() {
               fill
               sizes="100vw"
               className="object-cover"
-              priority
             />
           </div>
         )}
@@ -164,7 +209,6 @@ export default function Hero() {
               fill
               sizes="100vw"
               className="object-cover"
-              priority
             />
           </div>
         )}
@@ -181,7 +225,6 @@ export default function Hero() {
               alt={`${CLINICIAN_COUNT}+ Clinicians' Choice — Verified by FrontRow MD`}
               width={356}
               height={72}
-              priority
               className="h-16 md:h-20 w-auto"
             />
           </div>
@@ -325,7 +368,6 @@ export default function Hero() {
                   fill
                   sizes="320px"
                   className="object-contain drop-shadow-2xl"
-                  priority
                 />
               </div>
 

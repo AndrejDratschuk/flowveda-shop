@@ -6,7 +6,16 @@ Create `.env.local` and add the Meta Pixel/Dataset ID:
 
 ```bash
 NEXT_PUBLIC_META_PIXEL_ID=your_meta_pixel_id_here
+META_PIXEL_ID=your_meta_pixel_id_here
+META_CONVERSIONS_API_ACCESS_TOKEN=your_conversions_api_access_token_here
+META_GRAPH_API_VERSION=v25.0
+META_EVENT_ALLOWED_HOSTS=flowveda.co,www.flowveda.co
+NEXT_PUBLIC_POSTHOG_TOKEN=your_posthog_project_token_here
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 ```
+
+PostHog is initialized from `instrumentation-client.ts`. Set the PostHog token and host in
+your production environment as well as `.env.local`; omit the token to disable PostHog locally.
 
 First, run the development server:
 

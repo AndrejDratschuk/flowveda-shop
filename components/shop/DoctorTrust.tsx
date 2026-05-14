@@ -136,8 +136,15 @@ export default function DoctorTrust() {
                 className="flex-shrink-0 bg-fv-blue border border-fv-purple rounded-2xl p-6 flex flex-col items-center text-center shadow-fv-card"
                 style={{ flex: `0 0 calc((100% - ${(perView - 1) * 24}px) / ${perView})` }}
               >
-                <div className="w-[200px] h-[200px] rounded-full overflow-hidden mb-3">
-                  <img src={doc.photo} alt={doc.name} className="w-full h-full object-cover" />
+                <div className="relative w-[200px] h-[200px] rounded-full overflow-hidden mb-3">
+                  <Image
+                    src={doc.photo}
+                    alt={doc.name}
+                    fill
+                    sizes="200px"
+                    quality={70}
+                    className="object-cover"
+                  />
                 </div>
                 <p className="font-display font-bold text-white text-[20px] mb-1">{doc.name}</p>
                 <p className="font-body font-medium text-[#E8E5ED] text-[20px]">{doc.practice}</p>
