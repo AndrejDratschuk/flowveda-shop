@@ -7,6 +7,7 @@ if (posthogToken) {
   posthog.init(posthogToken, {
     api_host: posthogHost,
     defaults: "2026-01-30",
+    person_profiles: "always",
   });
 
   posthog.capture("flowveda_site_loaded", {
