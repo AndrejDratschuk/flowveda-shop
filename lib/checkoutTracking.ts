@@ -17,6 +17,7 @@ const CHECKOUT_EVENT = {
   currency: "USD",
   value: 99,
 };
+const hasPostHogToken = Boolean(process.env.NEXT_PUBLIC_POSTHOG_TOKEN);
 
 declare global {
   interface Window {
@@ -41,15 +42,23 @@ export function buildCheckoutUrl() {
 }
 
 export function trackCheckoutStart(checkoutUrl = CHECKOUT_URL) {
+  window.fbq?.("track", "AddToCart", CHECKOUT_EVENT);
   window.fbq?.("track", "InitiateCheckout", CHECKOUT_EVENT);
   window.fbq?.("trackCustom", "CheckoutClick", {
     destination: "checkout.flowveda.com",
   });
 
-  if (posthog.__loaded) {
-    posthog.capture("checkout_started", {
-      checkout_url: checkoutUrl,
-      destination: "checkout.flowveda.com",
-    });
+  const checkoutProperties = {
+    checkout_url: checkoutUrl,
+    destination: "checkout.flowveda.com",
+    product_id: CHECKOUT_EVENT.contents[0].id,
+    quantity: CHECKOUT_EVENT.contents[0].quantity,
+    currency: CHECKOUT_EVENT.currency,
+    value: CHECKOUT_EVENT.value,
+  };
+
+  if (hasPostHogToken) {
+    posthog.capture("add_to_cart", checkoutProperties);
+    posthog.capture("checkout_started", checkoutProperties);
   }
 }
