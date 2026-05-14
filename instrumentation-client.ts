@@ -8,4 +8,8 @@ if (posthogToken) {
     api_host: posthogHost,
     defaults: "2026-01-30",
   });
+
+  posthog.capture("flowveda_site_loaded", {
+    path: window.location.pathname,
+  });
 }
