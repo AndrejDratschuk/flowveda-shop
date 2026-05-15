@@ -1,12 +1,14 @@
+import PromoBar from "@/components/shop/PromoBar";
 import Hero from "@/components/shop/Hero";
+import Benefits from "@/components/shop/Benefits";
 import Problem from "@/components/shop/Problem";
-import Mechanism from "@/components/shop/Mechanism";
-import Reframe from "@/components/shop/Reframe";
-import Solution from "@/components/shop/Solution";
-import Product from "@/components/shop/Product";
+import Outcomes from "@/components/shop/Outcomes";
+import PressLogos from "@/components/shop/PressLogos";
 import DoctorTrust from "@/components/shop/DoctorTrust";
-import GerbilWheel from "@/components/shop/GerbilWheel";
+import CustomerReviews from "@/components/shop/CustomerReviews";
+import Comparison from "@/components/shop/Comparison";
 import Ingredients from "@/components/shop/Ingredients";
+import BuyBox from "@/components/shop/BuyBox";
 import Guarantee from "@/components/shop/Guarantee";
 import FinalClose from "@/components/shop/FinalClose";
 import Footer from "@/components/shop/Footer";
@@ -15,14 +17,16 @@ import StickyMobileCTA from "@/components/shop/StickyMobileCTA";
 export default function ShopPage() {
   return (
     <main className="overflow-x-hidden">
+      <PromoBar />
       <Hero />
+      <PressLogos />
+      <Benefits />
       <Problem />
-      <Mechanism />
-      <Reframe />
-      <Solution />
-      <Product />
+      <Outcomes />
+      <BuyBox />
       <DoctorTrust />
-      <GerbilWheel />
+      <CustomerReviews />
+      <Comparison />
       <Ingredients />
       <Guarantee />
       <FinalClose />
