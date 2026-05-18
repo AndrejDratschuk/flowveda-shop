@@ -15,7 +15,7 @@ const visuals: Visual[] = [
     kind: "video",
     src: "/videos/flowveda-distraction-hero-heartbeat.mp4",
     poster: "/images/hero-reactionary-world.jpeg",
-    alt: "The reactionary world — notifications, pressure, noise",
+    alt: "The reactionary world. Notifications, pressure, noise.",
   },
   {
     kind: "image",
@@ -25,7 +25,7 @@ const visuals: Visual[] = [
   {
     kind: "image",
     src: "/images/beach-serenity.jpeg",
-    alt: "A woman at the shore at sunset — present in the moment",
+    alt: "A woman at the shore at sunset, present in the moment",
   },
 ];
 
@@ -89,7 +89,7 @@ export default function Hero() {
           <div className="mb-7 md:mb-8">
             <Image
               src="/images/clinicians-choice-badge.svg"
-              alt={`${CLINICIAN_COUNT}+ Clinicians' Choice — Verified by FrontRow MD`}
+              alt={`${CLINICIAN_COUNT}+ Clinicians' Choice, Verified by FrontRow MD`}
               width={356}
               height={72}
               priority
@@ -116,7 +116,7 @@ export default function Hero() {
             className="font-body text-fv-charcoal-soft mb-7 max-w-[440px]"
             style={{ fontSize: "clamp(15px, 1.4vw, 17px)", lineHeight: 1.55 }}
           >
-            A daily Ayurvedic nootropic for the calm, focused attention to choose how you respond — before you react.
+            A daily Ayurvedic nootropic for the calm, focused attention to choose how you respond, before you react.
           </p>
 
           {/* Single bold CTA */}
@@ -130,7 +130,7 @@ export default function Hero() {
               ★★★★★
             </span>
             <span className="font-body font-bold text-[12px] text-fv-charcoal">
-              Recommended by {CLINICIAN_COUNT}+ verified clinicians
+              {CLINICIAN_COUNT}+ Clinicians' Choice
             </span>
           </div>
         </div>

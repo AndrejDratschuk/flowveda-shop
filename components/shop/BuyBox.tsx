@@ -6,13 +6,13 @@ import CheckoutLink from "./CheckoutLink";
 type Plan = "subscribe" | "onetime";
 
 const gallery = [
-  { src: "/images/buybox/bottle-pair-front.png", alt: "FlowVeda® 60-Day Awakening — two-bottle starter kit", fit: "contain" as const },
+  { src: "/images/buybox/bottle-pair-front.png", alt: "FlowVeda® 60-Day Awakening, two-bottle starter kit", fit: "contain" as const },
   { src: "/images/buybox/supports-calm-focus.png", alt: "Supports Calm Focus, Steady Attention, and The Moment Before Reaction", fit: "cover" as const },
-  { src: "/images/buybox/what-to-expect.png", alt: "What to expect after taking FlowVeda — after 3, 14, and 30 days", fit: "cover" as const },
-  { src: "/images/buybox/capsules-ashwagandha-bacopa-lionsmane.webp", alt: "Inside the capsule — Ashwagandha, Bacopa Monnieri, and Lion's Mane", fit: "contain" as const },
-  { src: "/images/buybox/capsules-rhodiola-ltheanine-nalt.webp", alt: "Inside the capsule — Rhodiola Rosea, L-Theanine, and N-Acetyl-L-Tyrosine", fit: "contain" as const },
-  { src: "/images/buybox/capsules-b-vitamins.webp", alt: "Inside the capsule — Vitamin B6 and Folate (Vitamin B9)", fit: "contain" as const },
-  { src: "/images/buybox/supplement-facts.webp", alt: "FlowVeda® Supplement Facts label — full dose disclosure", fit: "contain" as const },
+  { src: "/images/buybox/what-to-expect.png", alt: "What to expect after taking FlowVeda after 3, 14, and 30 days", fit: "cover" as const },
+  { src: "/images/buybox/capsules-ashwagandha-bacopa-lionsmane.webp", alt: "Inside the capsule:Ashwagandha, Bacopa Monnieri, and Lion's Mane", fit: "contain" as const },
+  { src: "/images/buybox/capsules-rhodiola-ltheanine-nalt.webp", alt: "Inside the capsule:Rhodiola Rosea, L-Theanine, and N-Acetyl-L-Tyrosine", fit: "contain" as const },
+  { src: "/images/buybox/capsules-b-vitamins.webp", alt: "Inside the capsule:Vitamin B6 and Folate (Vitamin B9)", fit: "contain" as const },
+  { src: "/images/buybox/supplement-facts.webp", alt: "FlowVeda® Supplement Facts label, full dose disclosure", fit: "contain" as const },
 ];
 
 const bullets = [
@@ -34,23 +34,23 @@ const trustBadges = [
 const faqs = [
   {
     q: "When will I notice the shift?",
-    a: "Most people begin to feel a difference within the first 2–3 weeks. The mechanism compounds — by day 30 the calmer baseline is more stable, and by day 60 it's foundational. That's why we built the protocol around 60 days, and back it with a 60-day money-back guarantee.",
+    a: "Most people begin to feel a difference within the first 2 to 3 weeks. The mechanism compounds. By day 30 the calmer baseline is more stable, and by day 60 it's foundational. That's why we built the protocol around 60 days, and back it with a 60-day money-back guarantee.",
   },
   {
     q: "Is FlowVeda® a stimulant?",
-    a: "No. FlowVeda is caffeine-free. The formula supports calm focus through adaptogens (KSM-66® Ashwagandha, Rhodiola), amino acids (L-Theanine, NALT), and B-vitamin cofactors — not by spiking your nervous system.",
+    a: "No. FlowVeda is caffeine-free. The formula supports calm focus through adaptogens (KSM-66® Ashwagandha, Rhodiola), amino acids (L-Theanine, NALT), and B-vitamin cofactors, not by spiking your nervous system.",
   },
   {
     q: "How is FlowClub™ different from a one-time purchase?",
-    a: "FlowClub™ is our subscription. You get the same 60-Day Awakening shipped automatically, with a deeper discount and the option to pause, skip, or cancel anytime from your account. One-time is a single 60-day supply at the listed price — no recurring charges.",
+    a: "FlowClub™ is our subscription. You get the same 60-Day Awakening shipped automatically, with a deeper discount and the option to pause, skip, or cancel anytime from your account. One-time is a single 60-day supply at the listed price. No recurring charges.",
   },
   {
     q: "Can I take it with coffee or other supplements?",
-    a: "Yes for coffee — many customers report better focus with less caffeine. For other supplements or prescriptions, always check with your physician. Every ingredient and dose is on the label so you can share it.",
+    a: "Yes for coffee. Many customers report better focus with less caffeine. For other supplements or prescriptions, always check with your physician. Every ingredient and dose is on the label so you can share it.",
   },
   {
     q: "What if it doesn't work for me?",
-    a: "Try it for the full 60 days. If you don't notice a meaningful shift in how you respond to your day, email us and we'll refund you — no return, no questions.",
+    a: "Try it for the full 60 days. If you don't notice a meaningful shift in how you respond to your day, email us and we'll refund you. No return, no questions.",
   },
   {
     q: "Where do you ship?",
@@ -219,7 +219,7 @@ export default function BuyBox() {
             </h2>
 
             <p className="font-body text-[17px] md:text-[18px] text-fv-charcoal-soft leading-[1.55] mb-5">
-              The FlowVeda® nootropic is formulated to develop calm, focused attention naturally over time — so you can find your zone every day.
+              The FlowVeda® nootropic is formulated to develop calm, focused attention naturally over time, so you can find your zone every day.
             </p>
 
             <ul className="space-y-2 mb-7">
@@ -244,7 +244,7 @@ export default function BuyBox() {
                 selected={plan === "subscribe"}
                 onClick={() => setPlan("subscribe")}
                 badge="Save 10% more · Most Popular"
-                title="FlowClub™ — Subscribe & Save"
+                title="FlowClub™ Subscribe & Save"
                 meta="Ships every 60 days · Pause or cancel anytime"
                 price={`$${subscribeUnit}`}
                 strike={`$${compareUnit}`}
@@ -347,7 +347,7 @@ export default function BuyBox() {
               Questions, answered honestly.
             </h3>
             <p className="font-body text-[16px] text-fv-charcoal-soft leading-[1.55] max-w-[560px] mx-auto">
-              Couldn't find what you need? Email <a href="mailto:hello@flowveda.com" className="text-fv-purple font-semibold hover:underline">hello@flowveda.com</a> — a real person replies within one business day.
+              Couldn't find what you need? Email <a href="mailto:hello@flowveda.com" className="text-fv-purple font-semibold hover:underline">hello@flowveda.com</a>. A real person replies within one business day.
             </p>
           </div>
 

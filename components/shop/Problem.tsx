@@ -52,7 +52,7 @@ export default function Problem() {
           <div className="relative min-h-[340px] md:min-h-[520px] order-first md:order-last">
             <Image
               src="/images/problem-bottle-capsule.png"
-              alt="A woman holding a FlowVeda® capsule and bottle — the calm, focused attention to choose how she responds"
+              alt="A woman holding a FlowVeda® capsule and bottle. The calm, focused attention to choose how she responds."
               fill
               sizes="(max-width: 768px) 100vw, 45vw"
               className="object-cover"

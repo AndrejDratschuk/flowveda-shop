@@ -19,13 +19,12 @@ export default function ShopPage() {
     <main className="overflow-x-hidden">
       <PromoBar />
       <Hero />
+      <DoctorTrust />
       <PressLogos />
       <Benefits />
       <Problem />
       <Outcomes />
       <BuyBox />
-      <DoctorTrust />
-      <CustomerReviews />
       <Comparison />
       <Ingredients />
       <Guarantee />

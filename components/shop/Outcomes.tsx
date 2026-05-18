@@ -3,8 +3,8 @@ import { CLINICIAN_COUNT } from "@/lib/constants";
 const stats = [
   { value: "200+", label: "peer-reviewed clinical studies cited across the formula." },
   { value: `${CLINICIAN_COUNT}+`, label: "physicians who share FlowVeda® with patients." },
-  { value: "86%", label: "of every capsule is Ayurvedic-based — no proprietary blends." },
-  { value: "8", label: "clinically-studied compounds — every dose published on the label." },
+  { value: "86%", label: "of every capsule is Ayurvedic-based. No proprietary blends." },
+  { value: "8", label: "clinically-studied compounds. Every dose published on the label." },
 ];
 
 const certifications = [
@@ -26,7 +26,7 @@ export default function Outcomes() {
               Backed by Science. Not Hype.
             </h2>
             <p className="font-body text-[16px] md:text-[18px] text-fv-charcoal-soft leading-[1.6]">
-              We can't promise miracles. We can show you exactly what's in the bottle — and the research behind every ingredient.
+              We can't promise miracles. We can show you exactly what's in the bottle, and the research behind every ingredient.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export default function Outcomes() {
               Quality You Can Trust.
             </h3>
             <p className="font-body text-[15px] md:text-[16px] text-fv-charcoal-soft leading-[1.6] mb-9 max-w-[640px] mx-auto">
-              Every batch of FlowVeda® is tested by an independent third-party lab and produced under the certifications you'd expect — and a few you wouldn't:
+              Every batch of FlowVeda® is tested by an independent third-party lab and produced under the certifications you'd expect, plus a few you wouldn't:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 max-w-[680px] mx-auto">

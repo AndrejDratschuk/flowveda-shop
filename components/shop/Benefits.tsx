@@ -77,7 +77,7 @@ export default function Benefits() {
             <div className="relative w-full aspect-[3/4] max-w-[380px]">
               <Image
                 src="/images/60-day-awakening.png"
-                alt="FlowVeda® 60-Day Awakening — two-bottle starter kit"
+                alt="FlowVeda® 60-Day Awakening, two-bottle starter kit"
                 fill
                 sizes="380px"
                 className="object-contain drop-shadow-2xl"
@@ -130,7 +130,7 @@ export default function Benefits() {
           <div className="relative w-full aspect-[3/4] max-w-[300px] mx-auto mb-10">
             <Image
               src="/images/60-day-awakening.png"
-              alt="FlowVeda® 60-Day Awakening — two-bottle starter kit"
+              alt="FlowVeda® 60-Day Awakening, two-bottle starter kit"
               fill
               sizes="300px"
               className="object-contain drop-shadow-2xl"
