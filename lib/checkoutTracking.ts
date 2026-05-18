@@ -11,11 +11,11 @@ const FORWARDED_PARAMS = [
 ];
 
 const CHECKOUT_EVENT = {
-  content_name: "FlowVeda 60-Day Awakening",
+  content_name: "FlowVeda Edge — 2 Bottles",
   content_type: "product",
-  contents: [{ id: "43287923458188", quantity: 1 }],
+  contents: [{ id: "44080479862924", quantity: 1 }],
   currency: "USD",
-  value: 99,
+  value: 84,
 };
 const hasPostHogToken = Boolean(process.env.NEXT_PUBLIC_POSTHOG_TOKEN);
 

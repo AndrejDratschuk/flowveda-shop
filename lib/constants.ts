@@ -1,20 +1,23 @@
-// One-time purchase: cart permalink for variant 43287923458188, qty 1.
-export const ONE_TIME_CHECKOUT_URL =
-  "https://checkout.flowveda.com/cart/43287923458188:1";
+// Starter Kit = FlowVeda® "Edge / 2 Bottles" (product `flowveda`,
+// variant 44080479862924, SKU "Edge2"). Subscription is the "Edge
+// Bi-Monthly" selling plan: deliver every 2 months, $84.00.
+const EDGE_2_BOTTLE_VARIANT_ID = "44080479862924";
+export const SUBSCRIPTION_SELLING_PLAN_ID = "1759445132";
 
-// Subscription: durable selling-plan id for the "FlowVeda® 60-Day
-// Membership — deliver every 2 months, 15% off" plan.
-export const SUBSCRIPTION_SELLING_PLAN_ID = "3367764108";
-// Must use the /cart/add permalink (not /cart/{id}:{qty}?selling_plan=):
-// this store's checkout edge silently DROPS selling_plan on the
-// /cart/{id}:{qty} permalink and checks out at the one-time price.
-// /cart/add binds the selling plan to the line item; return_to forwards
-// to checkout. Verified: line item resolves to the 15%-off plan price.
-export const SUBSCRIPTION_CHECKOUT_URL = `https://checkout.flowveda.com/cart/add?id=43287923458188&quantity=1&selling_plan=${SUBSCRIPTION_SELLING_PLAN_ID}&return_to=/checkout`;
+// IMPORTANT: must use the /cart/add permalink with return_to=/checkout.
+// This store's checkout edge silently DROPS ?selling_plan= on the
+// /cart/{id}:{qty} permalink (it bounces to a Shop Pay checkout and the
+// plan is lost). /cart/add binds the selling plan to the line item.
+// Verified against the live store: the line item resolves to the
+// "Deliver every 2 months, $84.00" Edge Bi-Monthly plan.
+export const SUBSCRIPTION_CHECKOUT_URL = `https://checkout.flowveda.com/cart/add?id=${EDGE_2_BOTTLE_VARIANT_ID}&quantity=1&selling_plan=${SUBSCRIPTION_SELLING_PLAN_ID}&return_to=/checkout`;
+
+// One-time: same Edge / 2 Bottles variant, no selling plan.
+export const ONE_TIME_CHECKOUT_URL = `https://checkout.flowveda.com/cart/add?id=${EDGE_2_BOTTLE_VARIANT_ID}&quantity=1&return_to=/checkout`;
 
 // Default checkout target (kept for existing imports).
 export const CHECKOUT_URL = ONE_TIME_CHECKOUT_URL;
-export const PRODUCT_NAME = "FlowVeda® 60-Day Awakening";
+export const PRODUCT_NAME = "FlowVeda® Edge — 2 Bottles";
 export const STORE_NAME = "FlowVeda®";
 
 // Single source of truth for clinician count.

@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { CLINICIAN_COUNT } from "@/lib/constants";
-import CheckoutLink from "./CheckoutLink";
 
 const ROTATION_MS = 6000;
 
@@ -120,9 +119,9 @@ export default function Hero() {
           </p>
 
           {/* Single bold CTA */}
-          <CheckoutLink className="inline-block w-fit bg-fv-midnight text-white font-body font-bold text-[13px] md:text-[14px] tracking-[0.10em] uppercase rounded-full px-8 md:px-9 py-[15px] md:py-[16px] shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,0,0,0.28)] transition-all duration-200">
+          <a href="#get-started" className="inline-block w-fit bg-fv-midnight text-white font-body font-bold text-[13px] md:text-[14px] tracking-[0.10em] uppercase rounded-full px-8 md:px-9 py-[15px] md:py-[16px] shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,0,0,0.28)] transition-all duration-200">
             Save 40% + Free Shipping →
-          </CheckoutLink>
+          </a>
 
           {/* Stars / clinician line */}
           <div className="mt-5 inline-flex items-center gap-2.5">

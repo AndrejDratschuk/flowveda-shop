@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { CLINICIAN_COUNT } from "@/lib/constants";
-import CheckoutLink from "./CheckoutLink";
 
 const bullets = [
   "Sharper memory. Faster recall. Less mental fog.",
@@ -63,9 +62,9 @@ export default function HeroFirstOrder() {
 
           {/* CTA + risk-free line (button left-aligned, risk-free centered under it) */}
           <div className="self-start inline-flex flex-col items-center gap-3">
-            <CheckoutLink className="inline-block bg-fv-midnight text-white font-body font-bold text-[14px] md:text-[15px] tracking-[0.10em] uppercase rounded-full px-9 md:px-10 py-[18px] md:py-[20px] shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,0,0,0.28)] transition-all duration-200">
+            <a href="#get-started" className="inline-block bg-fv-midnight text-white font-body font-bold text-[14px] md:text-[15px] tracking-[0.10em] uppercase rounded-full px-9 md:px-10 py-[18px] md:py-[20px] shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(0,0,0,0.28)] transition-all duration-200">
               Save 40% + Free Shipping →
-            </CheckoutLink>
+            </a>
 
             <div className="inline-flex items-center gap-2">
               <span className="flex-shrink-0 inline-flex w-5 h-5 rounded-full bg-fv-purple text-white items-center justify-center">

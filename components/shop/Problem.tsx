@@ -1,5 +1,4 @@
 import Image from "next/image";
-import CheckoutLink from "./CheckoutLink";
 
 export default function Problem() {
   return (
@@ -36,9 +35,9 @@ export default function Problem() {
                 </div>
               </div>
 
-              <CheckoutLink className="inline-block bg-fv-grad-purple text-white font-body font-bold text-[14px] tracking-[0.10em] uppercase rounded-full px-10 py-[18px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200">
+              <a href="#get-started" className="inline-block bg-fv-grad-purple text-white font-body font-bold text-[14px] tracking-[0.10em] uppercase rounded-full px-10 py-[18px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200">
                 Save 40% + Free Shipping
-              </CheckoutLink>
+              </a>
 
               <p className="mt-5 font-body text-[12px] text-fv-text-muted">
                 <a href="https://www.apa.org/news/press/releases/stress" className="underline underline-offset-2 hover:text-fv-purple">¹ Source</a>
