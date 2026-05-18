@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import CheckoutLink from "./CheckoutLink";
+import { ONE_TIME_CHECKOUT_URL, SUBSCRIPTION_CHECKOUT_URL } from "@/lib/constants";
 
 type Plan = "subscribe" | "onetime";
 
@@ -89,6 +90,8 @@ export default function BuyBox() {
   const compareTotal = compareUnit * qty;
   const savings = compareTotal - total;
   const savingsPct = Math.round((savings / compareTotal) * 100);
+  const checkoutUrl =
+    plan === "subscribe" ? SUBSCRIPTION_CHECKOUT_URL : ONE_TIME_CHECKOUT_URL;
 
   return (
     <section className="fv-section bg-white" id="get-started">
@@ -314,7 +317,7 @@ export default function BuyBox() {
                 </span>
               </div>
 
-              <CheckoutLink className="block w-full text-center bg-fv-grad-purple text-white font-body font-bold text-[14px] tracking-[0.10em] uppercase rounded-[10px] px-6 py-[18px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200 mb-2.5">
+              <CheckoutLink checkoutUrl={checkoutUrl} className="block w-full text-center bg-fv-grad-purple text-white font-body font-bold text-[14px] tracking-[0.10em] uppercase rounded-[10px] px-6 py-[18px] shadow-fv-cta hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(102,71,156,0.55)] transition-all duration-200 mb-2.5">
                 Add to Cart · Start the Awakening →
               </CheckoutLink>
 
