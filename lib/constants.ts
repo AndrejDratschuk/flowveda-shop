@@ -2,12 +2,15 @@
 export const ONE_TIME_CHECKOUT_URL =
   "https://checkout.flowveda.com/cart/43287923458188:1";
 
-// Subscription: same cart permalink + the durable selling-plan id for the
-// "FlowVeda® 60-Day Membership — deliver every 2 months, 15% off" plan.
-// selling_plan is the stable Shopify identifier; it does NOT expire like a
-// shop.app/cn checkout-session token.
+// Subscription: durable selling-plan id for the "FlowVeda® 60-Day
+// Membership — deliver every 2 months, 15% off" plan.
 export const SUBSCRIPTION_SELLING_PLAN_ID = "3367764108";
-export const SUBSCRIPTION_CHECKOUT_URL = `${ONE_TIME_CHECKOUT_URL}?selling_plan=${SUBSCRIPTION_SELLING_PLAN_ID}`;
+// Must use the /cart/add permalink (not /cart/{id}:{qty}?selling_plan=):
+// this store's checkout edge silently DROPS selling_plan on the
+// /cart/{id}:{qty} permalink and checks out at the one-time price.
+// /cart/add binds the selling plan to the line item; return_to forwards
+// to checkout. Verified: line item resolves to the 15%-off plan price.
+export const SUBSCRIPTION_CHECKOUT_URL = `https://checkout.flowveda.com/cart/add?id=43287923458188&quantity=1&selling_plan=${SUBSCRIPTION_SELLING_PLAN_ID}&return_to=/checkout`;
 
 // Default checkout target (kept for existing imports).
 export const CHECKOUT_URL = ONE_TIME_CHECKOUT_URL;
