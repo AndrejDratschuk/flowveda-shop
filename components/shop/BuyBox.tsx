@@ -81,9 +81,9 @@ export default function BuyBox() {
   const [activeImage, setActiveImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // One-time: $99 (was $165). Subscribe: $89 (10% off the one-time, $1.61/dose vs $1.79).
+  // One-time: $99 (was $165). Subscribe: $84 (Edge bi-monthly plan, ~15% off the one-time).
   const oneTimeUnit = 99;
-  const subscribeUnit = 89;
+  const subscribeUnit = 84;
   const compareUnit = 165;
   const unit = plan === "subscribe" ? subscribeUnit : oneTimeUnit;
   const total = unit * qty;
@@ -246,7 +246,7 @@ export default function BuyBox() {
               <PlanCard
                 selected={plan === "subscribe"}
                 onClick={() => setPlan("subscribe")}
-                badge="Save 10% more · Most Popular"
+                badge="Save 15% more · Most Popular"
                 title="FlowClub™ Subscribe & Save"
                 meta="Ships every 60 days · Pause or cancel anytime"
                 price={`$${subscribeUnit}`}
