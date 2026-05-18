@@ -25,10 +25,10 @@ declare global {
   }
 }
 
-export function buildCheckoutUrl() {
-  if (typeof window === "undefined") return CHECKOUT_URL;
+export function buildCheckoutUrl(baseUrl: string = CHECKOUT_URL) {
+  if (typeof window === "undefined") return baseUrl;
 
-  const checkoutUrl = new URL(CHECKOUT_URL);
+  const checkoutUrl = new URL(baseUrl);
   const currentUrl = new URL(window.location.href);
 
   FORWARDED_PARAMS.forEach((param) => {
