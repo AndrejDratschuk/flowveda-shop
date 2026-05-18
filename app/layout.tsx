@@ -26,7 +26,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "FlowVeda® — Own the Moment Before",
+  title: "FlowVeda® | Own the Moment Before",
   description: "A daily nootropic that supports calm, focused awareness, so you can recognize the moment before reaction and choose how you respond.",
   icons: {
     icon: "/icon.png",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   openGraph: {
-    title: "FlowVeda® — Own the Moment Before",
+    title: "FlowVeda® | Own the Moment Before",
     description: "A daily nootropic that supports calm, focused awareness, so you can recognize the moment before reaction and choose how you respond.",
     url: "https://flowveda.co/shop",
     siteName: "FlowVeda®",
