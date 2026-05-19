@@ -182,23 +182,6 @@ export default function BuyBox() {
                 animation: galleryFade 0.35s ease-out forwards;
               }
             `}</style>
-
-            <div className="mt-6 flex items-center gap-2.5 px-4 py-3 bg-fv-bone rounded-xl border border-fv-border">
-              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-fv-purple text-white flex items-center justify-center">
-                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 12l2 2 4-4" />
-                  <circle cx="12" cy="12" r="9" />
-                </svg>
-              </span>
-              <div>
-                <p className="font-body font-bold text-[13px] text-fv-charcoal leading-tight">
-                  Third-party tested for purity & potency
-                </p>
-                <p className="font-sub italic text-fv-purple text-[12px] leading-tight mt-0.5">
-                  Verified by 900+ clinicians · FrontRow MD
-                </p>
-              </div>
-            </div>
           </div>
 
           {/* RIGHT — Buy box */}
