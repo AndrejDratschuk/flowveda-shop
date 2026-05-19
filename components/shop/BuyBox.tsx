@@ -142,14 +142,6 @@ export default function BuyBox() {
                 priority
               />
 
-              <span className="absolute top-4 left-4 z-10 bg-fv-pink text-white font-body font-bold text-[11px] tracking-[0.12em] uppercase rounded-full px-3 py-1.5 shadow-md">
-                Save 40%
-              </span>
-              <span className="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-sm">
-                <span aria-hidden="true" className="text-fv-pink text-[12px] tracking-[0.05em]">★★★★★</span>
-                <span className="font-body font-bold text-[11px] tracking-[0.06em] text-fv-charcoal">4.8</span>
-              </span>
-
               {/* Prev / next arrows */}
               <button
                 type="button"
