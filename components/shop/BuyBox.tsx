@@ -97,11 +97,13 @@ export default function BuyBox() {
     <section className="fv-section bg-white" id="get-started">
       <div className="fv-container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 max-w-[1180px] mx-auto items-start">
-          {/* LEFT — Product gallery (Gruns-style: vertical thumb column on left + main image) */}
+          {/* LEFT — Product gallery. Desktop: vertical thumb column left of
+              the main image. Mobile: main image on top, thumbnails in a
+              horizontal strip below (Grüns-style). */}
           <div>
-            <div className="flex flex-row gap-3 md:gap-3.5">
-            {/* Vertical thumb column (left of main image) */}
-            <div className="flex flex-col gap-2 w-[64px] md:w-[76px] flex-shrink-0 self-stretch overflow-y-auto pr-0.5">
+            <div className="flex flex-col-reverse gap-3 md:flex-row md:gap-3.5">
+            {/* Thumb strip — horizontal below on mobile, vertical column on desktop */}
+            <div className="flex flex-row gap-2 overflow-x-auto md:flex-col md:w-[76px] md:flex-shrink-0 md:self-stretch md:overflow-x-visible md:overflow-y-auto md:pr-0.5">
               {gallery.map((g, i) => (
                 <button
                   key={i}
@@ -109,7 +111,7 @@ export default function BuyBox() {
                   onClick={() => setActiveImage(i)}
                   aria-label={`Show ${g.alt}`}
                   aria-pressed={activeImage === i}
-                  className={`relative aspect-square rounded-lg overflow-hidden border-2 flex-shrink-0 transition-all cursor-pointer ${
+                  className={`relative aspect-square w-[60px] md:w-auto rounded-lg overflow-hidden border-2 flex-shrink-0 transition-all cursor-pointer ${
                     activeImage === i
                       ? "border-fv-purple shadow-fv-card"
                       : "border-fv-border hover:border-fv-purple/50"
@@ -236,68 +238,71 @@ export default function BuyBox() {
               ))}
             </ul>
 
-            <div className="h-px bg-fv-border mb-6" />
+            {/* Combined buy card — plan selection + quantity + total + CTA
+                in one box so there's no scroll between choosing and buying
+                (Grüns-style). */}
+            <div className="rounded-2xl border border-fv-border bg-white shadow-fv-card p-4 md:p-5">
+              <p className="font-body font-bold text-[12px] tracking-[0.10em] uppercase text-fv-charcoal mb-3">
+                Choose your plan
+              </p>
+              <div className="grid grid-cols-1 gap-2.5 mb-4">
+                <PlanCard
+                  selected={plan === "subscribe"}
+                  onClick={() => setPlan("subscribe")}
+                  badge="Save 15% more · Most Popular"
+                  title="FlowClub™ Subscribe & Save"
+                  meta="Ships every 60 days · Pause or cancel anytime"
+                  price={`$${subscribeUnit}`}
+                  strike={`$${compareUnit}`}
+                />
+                <PlanCard
+                  selected={plan === "onetime"}
+                  onClick={() => setPlan("onetime")}
+                  title="One-Time Purchase"
+                  meta="Single 60-day supply · No subscription"
+                  price={`$${oneTimeUnit}`}
+                  strike={`$${compareUnit}`}
+                />
+              </div>
 
-            {/* Plan selector */}
-            <p className="font-body font-bold text-[12px] tracking-[0.10em] uppercase text-fv-charcoal mb-3">
-              Choose your plan
-            </p>
-            <div className="grid grid-cols-1 gap-2.5 mb-6">
-              <PlanCard
-                selected={plan === "subscribe"}
-                onClick={() => setPlan("subscribe")}
-                badge="Save 15% more · Most Popular"
-                title="FlowClub™ Subscribe & Save"
-                meta="Ships every 60 days · Pause or cancel anytime"
-                price={`$${subscribeUnit}`}
-                strike={`$${compareUnit}`}
-              />
-              <PlanCard
-                selected={plan === "onetime"}
-                onClick={() => setPlan("onetime")}
-                title="One-Time Purchase"
-                meta="Single 60-day supply · No subscription"
-                price={`$${oneTimeUnit}`}
-                strike={`$${compareUnit}`}
-              />
-            </div>
-
-            {/* Quantity */}
-            <p className="font-body font-bold text-[12px] tracking-[0.10em] uppercase text-fv-charcoal mb-3">
-              Choose your quantity
-            </p>
-            <div className="flex items-center gap-4 mb-6">
-              <div className="inline-flex items-center border border-fv-border rounded-full bg-white shadow-fv-card">
-                <button
-                  type="button"
-                  onClick={() => setQty(Math.max(1, qty - 1))}
-                  aria-label="Decrease quantity"
-                  className="w-11 h-11 flex items-center justify-center font-display font-extrabold text-[20px] text-fv-charcoal hover:text-fv-purple disabled:opacity-30 cursor-pointer"
-                  disabled={qty <= 1}
-                >
-                  −
-                </button>
-                <span aria-live="polite" className="w-10 text-center font-display font-extrabold text-[18px] text-fv-charcoal">
-                  {qty}
+              {/* Compact quantity row */}
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <span className="font-body font-bold text-[12px] tracking-[0.10em] uppercase text-fv-charcoal">
+                  Quantity
                 </span>
-                <button
-                  type="button"
-                  onClick={() => setQty(Math.min(6, qty + 1))}
-                  aria-label="Increase quantity"
-                  className="w-11 h-11 flex items-center justify-center font-display font-extrabold text-[20px] text-fv-charcoal hover:text-fv-purple disabled:opacity-30 cursor-pointer"
-                  disabled={qty >= 6}
-                >
-                  +
-                </button>
+                <div className="flex items-center gap-3">
+                  <div className="inline-flex items-center border border-fv-border rounded-full bg-white shadow-fv-card">
+                    <button
+                      type="button"
+                      onClick={() => setQty(Math.max(1, qty - 1))}
+                      aria-label="Decrease quantity"
+                      className="w-10 h-10 flex items-center justify-center font-display font-extrabold text-[18px] text-fv-charcoal hover:text-fv-purple disabled:opacity-30 cursor-pointer"
+                      disabled={qty <= 1}
+                    >
+                      −
+                    </button>
+                    <span aria-live="polite" className="w-8 text-center font-display font-extrabold text-[17px] text-fv-charcoal">
+                      {qty}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setQty(Math.min(6, qty + 1))}
+                      aria-label="Increase quantity"
+                      className="w-10 h-10 flex items-center justify-center font-display font-extrabold text-[18px] text-fv-charcoal hover:text-fv-purple disabled:opacity-30 cursor-pointer"
+                      disabled={qty >= 6}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <span className="text-[12px] font-body text-fv-text-body leading-tight text-right">
+                    <span className="font-bold text-fv-charcoal">{qty * 2}</span> bottles · {qty * 60}-day supply
+                  </span>
+                </div>
               </div>
-              <div className="text-[13px] font-body text-fv-text-body leading-tight">
-                <p><span className="font-bold text-fv-charcoal">{qty * 2}</span> bottles · <span className="font-bold text-fv-charcoal">{qty * 180}</span> capsules</p>
-                <p className="text-fv-purple font-sub italic">{qty * 60}-day supply · 3 capsules per day</p>
-              </div>
-            </div>
 
-            {/* Total + CTA */}
-            <div className="rounded-2xl bg-fv-bone border border-fv-border p-5 mb-5">
+              <div className="h-px bg-fv-border mb-4" />
+
+              {/* Total */}
               <div className="flex items-baseline justify-between mb-4">
                 <div>
                   <p className="font-body text-[12px] tracking-[0.10em] uppercase font-bold text-fv-text-muted mb-1">
