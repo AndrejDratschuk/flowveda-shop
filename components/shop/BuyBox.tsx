@@ -7,7 +7,7 @@ import { ONE_TIME_CHECKOUT_URL, SUBSCRIPTION_CHECKOUT_URL } from "@/lib/constant
 type Plan = "subscribe" | "onetime";
 
 const gallery = [
-  { src: "/images/buybox/platinum-flow-pair.png", alt: "FlowVeda® Platinum Flow — two-bottle offer, recommended by 900+ clinicians", fit: "cover" as const },
+  { src: "/images/buybox/platinum-flow-pair-49.png", alt: "FlowVeda® Platinum Flow — two-bottle offer, recommended by 900+ clinicians", fit: "cover" as const },
   { src: "/images/buybox/supports-calm-focus.png", alt: "Supports Calm Focus, Steady Attention, and The Moment Before Reaction", fit: "cover" as const },
   { src: "/images/buybox/what-to-expect.png", alt: "What to expect after taking FlowVeda after 3, 14, and 30 days", fit: "cover" as const },
   { src: "/images/buybox/capsules-ashwagandha-bacopa-lionsmane.webp", alt: "Inside the capsule:Ashwagandha, Bacopa Monnieri, and Lion's Mane", fit: "contain" as const },
