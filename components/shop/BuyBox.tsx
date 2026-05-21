@@ -7,9 +7,9 @@ import { ONE_TIME_CHECKOUT_URL, SUBSCRIPTION_CHECKOUT_URL } from "@/lib/constant
 type Plan = "subscribe" | "onetime";
 
 const gallery = [
-  { src: "/images/buybox/platinum-flow-pair-49.png", alt: "FlowVeda® Platinum Flow — two-bottle offer, recommended by 900+ clinicians", fit: "cover" as const },
-  { src: "/images/buybox/supports-calm-focus.png", alt: "Supports Calm Focus, Steady Attention, and The Moment Before Reaction", fit: "cover" as const },
-  { src: "/images/buybox/what-to-expect.png", alt: "What to expect after taking FlowVeda after 3, 14, and 30 days", fit: "cover" as const },
+  { src: "/images/buybox/platinum-flow-pair-49.png", alt: "FlowVeda® Platinum Flow — two-bottle offer, recommended by 900+ clinicians", fit: "contain" as const },
+  { src: "/images/buybox/supports-calm-focus.png", alt: "Supports Calm Focus, Steady Attention, and The Moment Before Reaction", fit: "contain" as const },
+  { src: "/images/buybox/what-to-expect.png", alt: "What to expect after taking FlowVeda after 3, 14, and 30 days", fit: "contain" as const },
   { src: "/images/buybox/capsules-ashwagandha-bacopa-lionsmane.webp", alt: "Inside the capsule:Ashwagandha, Bacopa Monnieri, and Lion's Mane", fit: "contain" as const },
   { src: "/images/buybox/capsules-rhodiola-ltheanine-nalt.webp", alt: "Inside the capsule:Rhodiola Rosea, L-Theanine, and N-Acetyl-L-Tyrosine", fit: "contain" as const },
   { src: "/images/buybox/capsules-b-vitamins.webp", alt: "Inside the capsule:Vitamin B6 and Folate (Vitamin B9)", fit: "contain" as const },
@@ -81,10 +81,12 @@ export default function BuyBox() {
   const [activeImage, setActiveImage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // One-time: $99 (was $165). Subscribe: $84 (Edge bi-monthly plan, ~15% off the one-time).
+  // One-time: $99 (was $165). Subscribe: $84 per 60-day shipment, displayed as $44/mo.
   const oneTimeUnit = 99;
   const subscribeUnit = 84;
+  const subscribeMonthly = 42;
   const compareUnit = 165;
+  const compareMonthly = Math.round(compareUnit / 2);
   const unit = plan === "subscribe" ? subscribeUnit : oneTimeUnit;
   const total = unit * qty;
   const compareTotal = compareUnit * qty;
@@ -227,8 +229,9 @@ export default function BuyBox() {
                   badge="Save 15% more · Most Popular"
                   title="FlowClub™ Subscribe & Save"
                   meta="Ships every 60 days · Pause or cancel anytime"
-                  price={`$${subscribeUnit}`}
-                  strike={`$${compareUnit}`}
+                  price={`$${subscribeMonthly}`}
+                  priceSuffix="/mo"
+                  strike={`$${compareMonthly}/mo`}
                 />
                 <PlanCard
                   selected={plan === "onetime"}
@@ -381,6 +384,7 @@ function PlanCard({
   title,
   meta,
   price,
+  priceSuffix,
   strike,
 }: {
   selected: boolean;
@@ -389,6 +393,7 @@ function PlanCard({
   title: string;
   meta: string;
   price: string;
+  priceSuffix?: string;
   strike?: string;
 }) {
   return (
@@ -433,6 +438,11 @@ function PlanCard({
         <div className="text-right flex-shrink-0">
           <span className="font-display font-extrabold text-[22px] md:text-[24px] text-fv-charcoal tracking-[-0.02em] leading-none">
             {price}
+            {priceSuffix && (
+              <span className="font-body font-semibold text-[12px] text-fv-text-muted tracking-normal ml-0.5">
+                {priceSuffix}
+              </span>
+            )}
           </span>
           {strike && (
             <span className="block font-body line-through text-[12px] text-fv-text-muted mt-0.5">
