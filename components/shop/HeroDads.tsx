@@ -8,10 +8,15 @@
 
 import { useState, useEffect } from "react";
 
-/* ---------- Tweakable defaults (formerly TWEAK_DEFAULTS) ---------- */
-const HERO_BG = "Bone" as const;
+/* ---------- Tweakable defaults (formerly TWEAK_DEFAULTS) ----------
+   Typed as the full union of options so the runtime comparisons below
+   ('HERO_BG !== "Slate"', accent ternary on ACCENT_TONE) remain valid
+   even though the current literal would let TypeScript narrow them. */
+type HeroBg = "Bone" | "White" | "Lavender" | "Cloud" | "Slate";
+type AccentTone = "Purple" | "Pink" | "Blue";
+const HERO_BG: HeroBg = "Bone";
 const EYEBROW = "FOR DADS WHO STOPPED SHOWING UP AT 6PM";
-const ACCENT_TONE = "Purple" as const;
+const ACCENT_TONE: AccentTone = "Purple";
 const CTA_COPY = "GET STARTED · SAVE 49%";
 
 /* ---------- Data ---------- */
@@ -559,9 +564,9 @@ function Stat({ n, label, text, mute, divider }: { n: string; label: string; tex
 
 /* ---------- Hero (main) ---------- */
 export default function HeroDads() {
-  const accent =
-    (ACCENT_TONE as string) === "Pink" ? "#EC81B4" :
-    (ACCENT_TONE as string) === "Blue" ? "#1E466B" :
+  const accent: string =
+    ACCENT_TONE === "Pink" ? "#EC81B4" :
+    ACCENT_TONE === "Blue" ? "#1E466B" :
     "#8265B8";
 
   const heroBackgrounds: Record<string, string> = {
