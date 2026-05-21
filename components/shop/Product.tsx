@@ -119,7 +119,7 @@ export default function Product() {
             >
               {plan === "subscription"
                 ? "Start My Subscription"
-                : "Buy Once — 60-Day Awakening"}{" "}
+                : "Buy Once · 60-Day Awakening"}{" "}
               →
             </CheckoutLink>
 

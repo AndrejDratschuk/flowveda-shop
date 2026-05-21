@@ -30,7 +30,7 @@ export default function Pricing() {
             <div className="relative w-full max-w-[360px] aspect-square">
               <Image
                 src="/images/60-day-awakening.png"
-                alt="FlowVeda 60-Day Awakening — two-bottle starter kit"
+                alt="FlowVeda 60-Day Awakening. Two-bottle starter kit."
                 fill
                 sizes="(max-width: 768px) 80vw, 360px"
                 className="object-contain drop-shadow-2xl"

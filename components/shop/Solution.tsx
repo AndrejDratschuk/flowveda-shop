@@ -28,7 +28,7 @@ export default function Solution() {
           <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden shadow-fv-card-hover">
             <Image
               src="/images/chill.webp"
-              alt="A man at peace, eyes closed, listening — present in the moment"
+              alt="A man at peace, eyes closed, listening. Present in the moment."
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"

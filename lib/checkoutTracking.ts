@@ -11,7 +11,7 @@ const FORWARDED_PARAMS = [
 ];
 
 const CHECKOUT_EVENT = {
-  content_name: "FlowVeda Edge — 2 Bottles",
+  content_name: "FlowVeda Edge · 2 Bottles",
   content_type: "product",
   contents: [{ id: "44080479862924", quantity: 1 }],
   currency: "USD",

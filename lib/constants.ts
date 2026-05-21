@@ -30,7 +30,7 @@ export const ONE_TIME_CHECKOUT_URL = clearThenCheckout(
 
 // Default checkout target (kept for existing imports).
 export const CHECKOUT_URL = ONE_TIME_CHECKOUT_URL;
-export const PRODUCT_NAME = "FlowVeda® Edge — 2 Bottles";
+export const PRODUCT_NAME = "FlowVeda® Edge · 2 Bottles";
 export const STORE_NAME = "FlowVeda®";
 
 // Single source of truth for clinician count.

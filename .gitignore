@@ -43,3 +43,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# working / scratch (not production)
+/_inbox/
+/.playwright-cli/
+/FlowVeda Hero 5 Reasons/
+

@@ -48,7 +48,7 @@ export default function Mechanism() {
               <div className="absolute top-1/2 left-0 right-0 h-[2px] -translate-y-1/2 rounded-sm bg-fv-grad-purple-deep" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-2.5 bg-white border-[1.5px] border-fv-purple rounded-full whitespace-nowrap shadow-[0_2px_12px_rgba(102,71,156,0.15)]">
                 <span className="font-sub italic text-[20px] text-fv-purple font-medium">
-                  488ms — the moment before
+                  488ms · the moment before
                 </span>
               </div>
             </div>
